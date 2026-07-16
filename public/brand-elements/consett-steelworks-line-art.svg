@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-label="Abstract Consett steelworks line art">
+  <title>Abstract Consett steelworks line art</title>
+  <rect width="1200" height="500" fill="none"/>
+  <g fill="none" stroke="#0B1320" stroke-opacity="0.18" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 420H1200"/>
+    <path d="M80 420V295h80v125"/>
+    <path d="M190 420V215h35v205"/>
+    <path d="M280 420V145h35v275"/>
+    <path d="M870 420V185h38v235"/>
+    <path d="M975 420V105h40v315"/>
+    <path d="M420 420L540 120l120 300"/>
+    <path d="M470 420V240h140v180"/>
+    <path d="M430 370h220M455 315h190M480 260h140"/>
+    <path d="M420 420l240-300M660 420L540 120"/>
+    <path d="M690 420V280h120v140"/>
+    <path d="M720 280l30-85 30 85"/>
+    <path d="M760 420V320h130v100"/>
+    <path d="M250 310h740M335 250h460"/>
+    <path d="M1015 420h120V300h-120z"/>
+  </g>
+</svg>

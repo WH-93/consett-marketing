@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430" role="img" aria-label="Consett Marketing primary logo with tagline">
+  <title>Consett Marketing primary logo</title>
+  <style>
+    .word { font-family: 'Sora', 'Inter', Arial, sans-serif; font-size: 156px; font-weight: 800; letter-spacing: -7px; fill: #0B1320; }
+    .sub { font-family: 'Inter', Arial, sans-serif; font-size: 49px; font-weight: 800; letter-spacing: 20px; fill: #0B1320; }
+    .tag { font-family: 'Inter', Arial, sans-serif; font-size: 42px; font-weight: 700; fill: #0B1320; }
+  </style>
+  <text class="word" x="70" y="170">consett</text>
+  <g transform="translate(823 44) scale(1.55)">
+    <path fill="#FF6A00" d="M63 18H24v14h25.1L17.8 63.3l9.9 9.9L59 41.9V67h14V28c0-5.5-4.5-10-10-10Z"/>
+  </g>
+  <text class="sub" x="210" y="260">MARKETING</text>
+  <rect x="478" y="296" width="86" height="7" fill="#FF6A00" rx="3.5"/>
+  <text class="tag" x="296" y="360"><tspan fill="#FF6A00">Solutions</tspan><tspan> before services.</tspan></text>
+</svg>

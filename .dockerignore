@@ -1,0 +1,15 @@
+infra/.terraform
+infra/tfplan
+infra/terraform.tfstate*
+.terraform
+.terragrunt-cache
+node_modules
+.next
+.git
+*.db
+*.md
+HANDOVER.md
+.hermes-tmp.*
+.history
+.DS_Store
+*.log

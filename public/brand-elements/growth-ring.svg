@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-label="Practical growth measurable results circle">
+  <circle cx="180" cy="180" r="128" fill="none" stroke="#E6E8EB" stroke-width="18"/>
+  <path d="M180 52a128 128 0 0 1 121 87" fill="none" stroke="#0B1320" stroke-width="18" stroke-linecap="round"/>
+  <path d="M301 139a128 128 0 0 1-64 150" fill="none" stroke="#FF6A00" stroke-width="18" stroke-linecap="round"/>
+  <path d="M237 289a128 128 0 0 1-165-45" fill="none" stroke="#00BFA5" stroke-width="18" stroke-linecap="round"/>
+  <text x="180" y="158" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#0B1320">Practical</text>
+  <text x="180" y="193" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#0B1320">growth.</text>
+  <text x="180" y="228" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#0B1320">Measurable results.</text>
+</svg>

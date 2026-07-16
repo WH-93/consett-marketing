@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="185" viewBox="0 0 680 185" role="img" aria-label="Consett Marketing white horizontal logo">
+  <title>Consett Marketing white horizontal logo</title>
+  <style>
+    .word { font-family: 'Sora', 'Inter', Arial, sans-serif; font-size: 98px; font-weight: 800; letter-spacing: -4px; fill: #FFFFFF; }
+    .sub { font-family: 'Inter', Arial, sans-serif; font-size: 26px; font-weight: 800; letter-spacing: 13px; fill: #FFFFFF; }
+  </style>
+  <text class="word" x="28" y="104">consett</text>
+  <g transform="translate(522 25) scale(1)">
+    <path fill="#FF6A00" d="M63 18H24v14h25.1L17.8 63.3l9.9 9.9L59 41.9V67h14V28c0-5.5-4.5-10-10-10Z"/>
+  </g>
+  <text class="sub" x="140" y="154">MARKETING</text>
+</svg>

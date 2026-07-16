@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="260" viewBox="0 0 360 260" role="img" aria-label="Corner frame brand element">
+  <rect width="360" height="260" fill="none"/>
+  <path d="M54 95V54h42" stroke="#00BFA5" stroke-width="10" fill="none" stroke-linecap="square"/>
+  <path d="M264 54h42v41" stroke="#0B1320" stroke-width="10" fill="none" stroke-linecap="square"/>
+  <path d="M54 165v41h42" stroke="#0B1320" stroke-width="10" fill="none" stroke-linecap="square"/>
+  <path d="M306 165v41h-42" stroke="#00BFA5" stroke-width="10" fill="none" stroke-linecap="square"/>
+</svg>

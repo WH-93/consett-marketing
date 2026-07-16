@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative AWS Account — Full Architecture</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: #020617;
+      min-height: 100vh;
+      padding: 2rem;
+      color: white;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .header { margin-bottom: 2rem; }
+    .header-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+    .pulse-dot { width: 12px; height: 12px; background: #22d3ee; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; }
+    .subtitle { color: #94a3b8; font-size: 0.875rem; margin-left: 1.75rem; }
+    .diagram-container {
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 1rem;
+      border: 1px solid #1e293b;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    svg { width: 100%; min-width: 1000px; display: block; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 0.75rem;
+      border: 1px solid #1e293b;
+      padding: 1.25rem;
+    }
+    .card-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .card-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .card-dot.cyan { background: #22d3ee; }
+    .card-dot.emerald { background: #34d399; }
+    .card-dot.amber { background: #fbbf24; }
+    .card-dot.violet { background: #a78bfa; }
+    .card-dot.rose { background: #fb7185; }
+    .card h3 { font-size: 0.875rem; font-weight: 600; }
+    .card ul { list-style: none; color: #94a3b8; font-size: 0.75rem; }
+    .card li { margin-bottom: 0.375rem; }
+    .footer { text-align: center; margin-top: 1.5rem; color: #475569; font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-row">
+        <div class="pulse-dot"></div>
+        <h1>Creative AWS Account — Full Architecture</h1>
+      </div>
+      <p class="subtitle">Account 486208157703 · eu-west-2 · BC Financial + Ross Webster Tree Services</p>
+    </div>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 1100 720">
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+          </marker>
+          <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee" />
+          </marker>
+          <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+          </marker>
+          <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- ============================================================
+             AWS REGION BOUNDARY
+             ============================================================ -->
+        <rect x="20" y="20" width="1060" height="680" rx="14" fill="rgba(251, 191, 36, 0.03)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="8,4"/>
+        <text x="34" y="40" fill="#fbbf24" font-size="11" font-weight="600">AWS: eu-west-2 (London) · Account 486208157703</text>
+
+        <!-- VPC -->
+        <rect x="40" y="55" width="1020" height="625" rx="10" fill="rgba(30, 41, 59, 0.15)" stroke="#475569" stroke-width="1"/>
+        <text x="54" y="72" fill="#64748b" font-size="9">VPC: 10.0.0.0/16</text>
+
+        <!-- ============================================================
+             BC FINANCIAL (LEFT)
+             ============================================================ -->
+        <!-- Client boundary -->
+        <rect x="55" y="85" width="475" height="580" rx="8" fill="rgba(34, 211, 238, 0.03)" stroke="#22d3ee" stroke-width="0.75" stroke-dasharray="6,3"/>
+        <text x="67" y="102" fill="#22d3ee" font-size="11" font-weight="700">BC Financial — Recruitment Platform</text>
+        <text x="67" y="116" fill="#64748b" font-size="8">bc-recruitment-250051615.eu-west-2.elb.amazonaws.com</text>
+
+        <!-- Site label -->
+        <rect x="70" y="128" width="445" height="28" rx="4" fill="rgba(34, 211, 238, 0.1)" stroke="#22d3ee" stroke-width="0.5"/>
+        <text x="292" y="146" fill="#22d3ee" font-size="9" font-weight="600" text-anchor="middle">Existing Architecture · ~$55/month</text>
+
+        <!-- BC ALB -->
+        <rect x="70" y="172" width="200" height="65" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+        <rect x="70" y="172" width="200" height="65" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="170" y="198" fill="white" font-size="12" font-weight="600" text-anchor="middle">Application Load Balancer</text>
+        <text x="170" y="216" fill="#94a3b8" font-size="9" text-anchor="middle">HTTPS · TLS Cert · Path Routing</text>
+        <text x="170" y="230" fill="#fbbf24" font-size="7" text-anchor="middle">arn:aws:elasticloadbalancing:...</text>
+
+        <!-- BC ECS -->
+        <rect x="70" y="262" width="200" height="80" rx="6" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+        <rect x="70" y="262" width="200" height="80" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="170" y="290" fill="white" font-size="12" font-weight="600" text-anchor="middle">ECS Fargate Service</text>
+        <text x="170" y="308" fill="#94a3b8" font-size="9" text-anchor="middle">Next.js Standalone · 0.5 vCPU</text>
+        <text x="170" y="324" fill="#94a3b8" font-size="9" text-anchor="middle">1 GB RAM · 1 Task</text>
+        <text x="170" y="336" fill="#34d399" font-size="7" text-anchor="middle">aws_ecs_service.bc_financial</text>
+
+        <!-- BC RDS -->
+        <rect x="70" y="367" width="200" height="65" rx="6" fill="#0f172a" stroke="#a78bfa" stroke-width="1"/>
+        <rect x="70" y="367" width="200" height="65" rx="6" fill="rgba(76, 29, 149, 0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="170" y="393" fill="white" font-size="12" font-weight="600" text-anchor="middle">RDS PostgreSQL</text>
+        <text x="170" y="411" fill="#94a3b8" font-size="9" text-anchor="middle">db.t4g.micro · Single AZ</text>
+        <text x="170" y="425" fill="#a78bfa" font-size="7" text-anchor="middle">aws_db_instance.bc_financial</text>
+
+        <!-- BC ECR -->
+        <rect x="70" y="457" width="200" height="50" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+        <rect x="70" y="457" width="200" height="50" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="170" y="478" fill="white" font-size="11" font-weight="600" text-anchor="middle">ECR Repository</text>
+        <text x="170" y="496" fill="#94a3b8" font-size="8" text-anchor="middle">bc-financial:{tag}</text>
+
+        <!-- BC GitHub -->
+        <rect x="320" y="262" width="190" height="65" rx="6" fill="#0f172a" stroke="#94a3b8" stroke-width="1"/>
+        <rect x="320" y="262" width="190" height="65" rx="6" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+        <text x="415" y="288" fill="white" font-size="12" font-weight="600" text-anchor="middle">GitHub Actions</text>
+        <text x="415" y="306" fill="#94a3b8" font-size="9" text-anchor="middle">Docker Build + Push</text>
+        <text x="415" y="320" fill="#94a3b8" font-size="8" text-anchor="middle">ECS Deploy on merge</text>
+
+        <!-- BC users -->
+        <rect x="320" y="172" width="190" height="50" rx="6" fill="#0f172a" stroke="#94a3b8" stroke-width="1"/>
+        <rect x="320" y="172" width="190" height="50" rx="6" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+        <text x="415" y="194" fill="white" font-size="12" font-weight="600" text-anchor="middle">Users · Browser</text>
+        <text x="415" y="212" fill="#94a3b8" font-size="9" text-anchor="middle">Recruiters · Candidates</text>
+
+        <!-- BC Arrows -->
+        <line x1="320" y1="197" x2="272" y2="197" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+        <line x1="170" y1="239" x2="170" y2="260" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+        <line x1="170" y1="344" x2="170" y2="365" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+        <text x="186" y="357" fill="#a78bfa" font-size="8">TLS</text>
+        <path d="M 415 262 L 415 247 Q 415 237 400 237 L 200 237 Q 185 237 185 222 L 185 217" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <text x="310" y="232" fill="#94a3b8" font-size="8">deploy</text>
+
+        <!-- BC cost box -->
+        <rect x="320" y="367" width="190" height="80" rx="6" fill="rgba(15, 23, 42, 0.8)" stroke="#1e293b" stroke-width="1"/>
+        <text x="415" y="388" fill="#34d399" font-size="10" font-weight="600" text-anchor="middle">Monthly Cost</text>
+        <text x="330" y="406" fill="#94a3b8" font-size="9">Fargate</text><text x="460" y="406" fill="white" font-size="9" text-anchor="end">~$17</text>
+        <text x="330" y="420" fill="#94a3b8" font-size="9">ALB</text><text x="460" y="420" fill="white" font-size="9" text-anchor="end">~$15</text>
+        <text x="330" y="434" fill="#94a3b8" font-size="9">RDS + VPC</text><text x="460" y="434" fill="white" font-size="9" text-anchor="end">~$24</text>
+        <text x="330" y="446" fill="#34d399" font-size="8" font-weight="600">Total</text><text x="460" y="446" fill="#34d399" font-size="8" font-weight="600" text-anchor="end">~$55/mo</text>
+
+        <!-- ============================================================
+             ROSS WEBSTER TREE SERVICES (RIGHT)
+             ============================================================ -->
+        <!-- Client boundary -->
+        <rect x="555" y="85" width="505" height="580" rx="8" fill="rgba(214, 90, 31, 0.04)" stroke="#D65A1F" stroke-width="0.75" stroke-dasharray="6,3"/>
+        <text x="567" y="102" fill="#D65A1F" font-size="11" font-weight="700">Ross Webster Tree Services — Brochure + Commercial</text>
+
+        <!-- ============================================================
+             PHASE 1 — STATIC (CURRENT)
+             ============================================================ -->
+        <!-- Phase 1 box -->
+        <rect x="570" y="120" width="475" height="28" rx="4" fill="rgba(214, 90, 31, 0.1)" stroke="#D65A1F" stroke-width="0.5"/>
+        <text x="807" y="138" fill="#D65A1F" font-size="9" font-weight="600" text-anchor="middle">Phase 1 — Static Site (Now) · ~$2/month</text>
+
+        <!-- CloudFront -->
+        <rect x="570" y="162" width="210" height="75" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+        <rect x="570" y="162" width="210" height="75" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="675" y="190" fill="white" font-size="12" font-weight="600" text-anchor="middle">CloudFront CDN</text>
+        <text x="675" y="208" fill="#94a3b8" font-size="9" text-anchor="middle">HTTPS · Global Edge · OAI</text>
+        <text x="675" y="224" fill="#fbbf24" font-size="7" text-anchor="middle">distribution-id.cloudfront.net</text>
+
+        <!-- S3 -->
+        <rect x="570" y="260" width="210" height="80" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+        <rect x="570" y="260" width="210" height="80" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="675" y="288" fill="white" font-size="12" font-weight="600" text-anchor="middle">S3 Bucket</text>
+        <text x="675" y="306" fill="#94a3b8" font-size="9" text-anchor="middle">Static Hosting · Private</text>
+        <text x="675" y="322" fill="#94a3b8" font-size="8" text-anchor="middle">next export output</text>
+        <text x="675" y="334" fill="#fbbf24" font-size="7" text-anchor="middle">Public Access Blocked</text>
+
+        <!-- Route 53 -->
+        <rect x="830" y="162" width="210" height="75" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+        <rect x="830" y="162" width="210" height="75" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="935" y="190" fill="white" font-size="12" font-weight="600" text-anchor="middle">Route 53</text>
+        <text x="935" y="208" fill="#94a3b8" font-size="9" text-anchor="middle">DNS · Domain</text>
+        <text x="935" y="224" fill="#fbbf24" font-size="7" text-anchor="middle">rosswebstertreeservices.co.uk</text>
+
+        <!-- GitHub CI -->
+        <rect x="830" y="260" width="210" height="80" rx="6" fill="#0f172a" stroke="#94a3b8" stroke-width="1"/>
+        <rect x="830" y="260" width="210" height="80" rx="6" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+        <text x="935" y="288" fill="white" font-size="12" font-weight="600" text-anchor="middle">GitHub Actions</text>
+        <text x="935" y="306" fill="#94a3b8" font-size="9" text-anchor="middle">next build + export</text>
+        <text x="935" y="322" fill="#94a3b8" font-size="8" text-anchor="middle">s3 sync · invalidate</text>
+        <text x="935" y="334" fill="#94a3b8" font-size="7" text-anchor="middle">push to main → deploy</text>
+
+        <!-- Static users -->
+        <rect x="570" y="370" width="210" height="50" rx="6" fill="#0f172a" stroke="#D65A1F" stroke-width="1"/>
+        <rect x="570" y="370" width="210" height="50" rx="6" fill="rgba(214, 90, 31, 0.15)" stroke="#D65A1F" stroke-width="1"/>
+        <text x="675" y="392" fill="white" font-size="11" font-weight="600" text-anchor="middle">Users — Brochure Site</text>
+        <text x="675" y="408" fill="#94a3b8" font-size="8" text-anchor="middle">Site Managers · Homeowners</text>
+
+        <!-- Phase 1 arrows -->
+        <line x1="570" y1="395" x2="240" y2="395" stroke="#D65A1F" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="405" y="389" fill="#D65A1F" font-size="8">separate client · no shared infra</text>
+        <line x1="675" y1="239" x2="675" y2="258" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <text x="690" y="252" fill="#94a3b8" font-size="8">OAI</text>
+        <line x1="830" y1="199" x2="782" y2="199" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+        <text x="806" y="192" fill="#fbbf24" font-size="7">ALIAS</text>
+        <path d="M 935 260 L 935 245 Q 935 235 920 235 L 705 235 Q 690 235 690 220 L 690 185" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
+        <path d="M 830 300 L 810 300 L 810 380 Q 810 395 795 395 L 782 395" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <text x="820" y="350" fill="#94a3b8" font-size="8">deploy</text>
+
+        <!-- Phase 1 cost -->
+        <rect x="830" y="370" width="210" height="50" rx="6" fill="rgba(15, 23, 42, 0.8)" stroke="#D65A1F" stroke-width="0.5"/>
+        <text x="935" y="390" fill="#34d399" font-size="9" font-weight="600" text-anchor="middle">Phase 1: ~$2/month</text>
+        <text x="935" y="408" fill="#94a3b8" font-size="8" text-anchor="middle">S3 $0.50 · CF $1 · R53 $0.50</text>
+
+        <!-- ============================================================
+             PHASE 2 — FULL (FUTURE)
+             ============================================================ -->
+        <!-- Divider -->
+        <line x1="570" y1="438" x2="1040" y2="438" stroke="#D65A1F" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+        <!-- Phase 2 box -->
+        <rect x="570" y="450" width="475" height="28" rx="4" fill="rgba(214, 90, 31, 0.1)" stroke="#D65A1F" stroke-width="0.5"/>
+        <text x="807" y="468" fill="#D65A1F" font-size="9" font-weight="600" text-anchor="middle">Phase 2 — Full Site with Backend (Future) · ~$45/month</text>
+
+        <!-- RW ALB -->
+        <rect x="570" y="490" width="210" height="65" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+        <rect x="570" y="490" width="210" height="65" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="675" y="516" fill="white" font-size="12" font-weight="600" text-anchor="middle">Application Load Balancer</text>
+        <text x="675" y="534" fill="#94a3b8" font-size="9" text-anchor="middle">HTTPS · Own TLS Cert</text>
+        <text x="675" y="548" fill="#D65A1F" font-size="7" text-anchor="middle">Separate from BC Financial ALB</text>
+
+        <!-- RW ECS -->
+        <rect x="570" y="578" width="210" height="72" rx="6" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+        <rect x="570" y="578" width="210" height="72" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="675" y="604" fill="white" font-size="12" font-weight="600" text-anchor="middle">ECS Fargate Service</text>
+        <text x="675" y="620" fill="#94a3b8" font-size="9" text-anchor="middle">Next.js Standalone · 0.25 vCPU</text>
+        <text x="675" y="636" fill="#94a3b8" font-size="9" text-anchor="middle">0.5 GB RAM · 1 Task</text>
+        <text x="675" y="646" fill="#34d399" font-size="7" text-anchor="middle">aws_ecs_service.ross_webster</text>
+
+        <!-- RW ECR -->
+        <rect x="830" y="490" width="210" height="65" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+        <rect x="830" y="490" width="210" height="65" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="935" y="516" fill="white" font-size="11" font-weight="600" text-anchor="middle">ECR Repository</text>
+        <text x="935" y="534" fill="#94a3b8" font-size="9" text-anchor="middle">ross-webster:{tag}</text>
+        <text x="935" y="548" fill="#D65A1F" font-size="7" text-anchor="middle">Separate from BC Financial ECR</text>
+
+        <!-- RW cost -->
+        <rect x="830" y="578" width="210" height="72" rx="6" fill="rgba(15, 23, 42, 0.8)" stroke="#D65A1F" stroke-width="0.5"/>
+        <text x="935" y="598" fill="#34d399" font-size="10" font-weight="600" text-anchor="middle">Phase 2: ~$45/month</text>
+        <text x="840" y="616" fill="#94a3b8" font-size="9">Fargate</text><text x="980" y="616" fill="white" font-size="9" text-anchor="end">~$10</text>
+        <text x="840" y="630" fill="#94a3b8" font-size="9">ALB</text><text x="980" y="630" fill="white" font-size="9" text-anchor="end">~$15</text>
+        <text x="840" y="644" fill="#94a3b8" font-size="9">Static infra</text><text x="980" y="644" fill="white" font-size="9" text-anchor="end">~$2</text>
+        <text x="840" y="645" fill="#34d399" font-size="8" font-weight="600">Total (inc VPC)</text><text x="980" y="645" fill="#34d399" font-size="8" font-weight="600" text-anchor="end">~$45</text>
+
+        <!-- Phase 2 arrows -->
+        <line x1="675" y1="557" x2="675" y2="576" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+        <text x="690" y="569" fill="#34d399" font-size="8">HTTPS</text>
+        <path d="M 935 490 L 935 475 Q 935 465 920 465 L 705 465 Q 690 465 690 450 L 690 433" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="815" y="460" fill="#94a3b8" font-size="7">future: route /api/* to ALB</text>
+
+        <!-- Big arrow: static → full -->
+        <path d="M 807 476 L 807 488" fill="none" stroke="#D65A1F" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+        <!-- ============================================================
+             LEGEND
+             ============================================================ -->
+        <text x="910" y="30" fill="white" font-size="10" font-weight="600">Legend</text>
+        <rect x="910" y="42" width="16" height="10" rx="2" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1"/>
+        <text x="932" y="50" fill="#94a3b8" font-size="8">AWS Service</text>
+        <rect x="910" y="58" width="16" height="10" rx="2" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1"/>
+        <text x="932" y="66" fill="#94a3b8" font-size="8">Compute (ECS)</text>
+        <rect x="910" y="74" width="16" height="10" rx="2" fill="rgba(76, 29, 149, 0.4)" stroke="#a78bfa" stroke-width="1"/>
+        <text x="932" y="82" fill="#94a3b8" font-size="8">Database</text>
+        <rect x="910" y="90" width="16" height="10" rx="2" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1"/>
+        <text x="932" y="98" fill="#94a3b8" font-size="8">External / CI</text>
+        <line x1="910" y1="110" x2="926" y2="110" stroke="#D65A1F" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="932" y="113" fill="#D65A1F" font-size="8">Client Boundary</text>
+      </svg>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot cyan"></div>
+          <h3>BC Financial — Existing</h3>
+        </div>
+        <ul>
+          <li>• ALB + ECS Fargate + RDS</li>
+          <li>• Own ALB with TLS cert and path routing</li>
+          <li>• GitHub Actions for CI/CD</li>
+          <li>• ~$55/month steady state</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot amber"></div>
+          <h3>Ross Webster — Phase 1 (Now)</h3>
+        </div>
+        <ul>
+          <li>• CloudFront + S3 static site</li>
+          <li>• Route 53 for domain when ready</li>
+          <li>• GitHub Actions for deploy</li>
+          <li>• ~$2/month</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot rose"></div>
+          <h3>Ross Webster — Phase 2 (Future)</h3>
+        </div>
+        <ul>
+          <li>• Own ALB + ECS + ECR</li>
+          <li>• CloudFront routes /api/* to ALB</li>
+          <li>• Own TLS cert, own domain</li>
+          <li>• ~$45/month total</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer">
+      Creative AWS Account (486208157703) · eu-west-2 · Two separate clients · No shared infrastructure between BC Financial and Ross Webster
+    </p>
+  </div>
+</body>
+</html>
