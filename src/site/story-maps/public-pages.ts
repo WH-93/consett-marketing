@@ -26,15 +26,6 @@ export const publicPageMaps = {
       { id: 'cta', type: 'centerCta', variant: 'white' },
     ],
   },
-  candidates: {
-    page: 'candidates',
-    sections: [
-      { id: 'hero', type: 'splitHero', variant: 'splitImage' },
-      { id: 'steps', type: 'stepImageSplit', variant: 'copyImage' },
-      { id: 'testimonials', type: 'testimonials', variant: 'darkThreeColumn' },
-      { id: 'areas', type: 'areasCards', variant: 'warmCentered' },
-    ],
-  },
   clients: {
     page: 'clients',
     sections: [

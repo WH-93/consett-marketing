@@ -1,6 +1,6 @@
 import type { BcIconName } from '@/components/bc-icon';
 
-export type PublicPageKey = 'home' | 'about' | 'services' | 'candidates' | 'clients' | 'contact';
+export type PublicPageKey = 'home' | 'about' | 'services' | 'clients' | 'contact';
 
 export type SectionType =
   | 'splitHero'

@@ -84,24 +84,6 @@ export const consettMarketingProfile = {
       method: { eyebrow: 'How We Work', title: 'Listen. Plan. Build. Deliver.', steps: process, border: false },
       cta: { eyebrow: 'Not sure what you need?', title: 'That is where we start.', body: ['Tell us about your business and where you want to be. We will tell you what would make the biggest difference, even if it is not something we sell.'], actions: [{ href: '/#contact', label: 'Start the Conversation', style: 'primary' as const }] },
     },
-    candidates: {
-      hero: { eyebrow: 'For Trades & Local Services', headline: [[{ text: 'You know your trade.' }], [{ text: 'We get you ' }, { text: 'found.', accent: true }]], body: ['If your phone is not ringing and your inbox is quiet, the problem is not your work. It is your visibility.', 'We help tradespeople, local services and independent businesses get found by the people searching for them right now.'], actions: [{ href: '/#contact', label: 'Get a free assessment', style: 'primary' as const }], image: { src: '/reference/greyscale-county-durham-trades.png', alt: 'Greyscale local trades van outside County Durham homes' } },
-      steps: { eyebrow: 'How We Help', title: 'From invisible to the top of the list.', steps: [
-        { icon: 'search' as const, title: '1. Audit', desc: 'We check where you appear now and what your competitors are doing.' },
-        { icon: 'target' as const, title: '2. Build', desc: 'Website, Google profile, local listings: everything working together.' },
-        { icon: 'star' as const, title: '3. Optimise', desc: 'Keywords, content and technical fixes that push you up the rankings.' },
-        { icon: 'shield' as const, title: '4. Measure', desc: 'Calls, enquiries, bookings: we track what matters to your business.' },
-      ], cta: { href: '/#contact', label: 'Start with a free assessment', style: 'primary' as const }, image: { src: '/reference/greyscale-county-durham-trades.png', alt: 'Greyscale County Durham trades and local search process' } },
-      testimonials: { title: 'What local businesses say', subtitle: 'Straight-talking marketing that delivers.', items: [
-        { quote: 'The team built us a site that brings in work. No fluff, just results.', role: 'Tree Surgeon', label: 'County Durham' },
-        { quote: 'Finally, someone who explains marketing in plain English and does what they say.', role: 'Recruitment Director', label: 'Manchester' },
-        { quote: 'Fast, clear and exactly what we needed. The site was live in under two weeks.', role: 'Shop Owner', label: 'Consett' },
-      ] },
-      areas: { eyebrow: 'Who We Work With', title: 'Marketing that fits your business.', groups: [
-        { title: 'Trades & Services', desc: 'Tree surgeons, builders, electricians, plumbers, landscapers. If you turn up and do the work, we make sure people can find you.' },
-        { title: 'Professional Services', desc: 'Accountants, solicitors, recruiters, consultants: marketing that reflects your expertise and brings the right enquiries.' },
-      ], cta: { href: '/#contact', label: 'Get a Free Assessment', style: 'primary' as const } },
-    },
     clients: {
       hero: { eyebrow: 'Our Work', headline: [[{ text: 'Projects with' }], [{ text: 'practical ' }, { text: 'growth.', accent: true }]], body: ['A selection of recent work for local businesses. Brand identity, website design, SEO and content: built to work, not just to look good.'], image: { src: '/reference/greyscale-consett-high-street.png', alt: 'Greyscale Consett high street businesses' } },
       areas: { eyebrow: 'Recent Projects', title: 'Local businesses we have worked with.', groups: workExamples },

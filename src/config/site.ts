@@ -65,7 +65,6 @@ export const siteConfig = {
     quickLinks: [
       { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
-      { label: 'For Trades & Local Services', href: '/candidates' },
       { label: 'Contact', href: '/#contact' },
     ],
   },
