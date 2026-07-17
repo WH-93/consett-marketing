@@ -47,10 +47,12 @@ export function FounderInsightSection({ content }: SectionProps<FounderInsightCo
           <div className="body-copy space-y-4 mt-6 max-w-xl">
             {content.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
-          <div className="mt-9 pt-6 hairline-t max-w-xl">
-            <p className="font-heading font-bold text-2xl text-navy">{content.signature}</p>
-            <p className="eyebrow mt-1">{content.role}</p>
-          </div>
+          {content.signature && (
+            <div className="mt-9 pt-6 hairline-t max-w-xl">
+              <p className="font-heading font-bold text-2xl text-navy">{content.signature}</p>
+              {content.role && <p className="eyebrow mt-1">{content.role}</p>}
+            </div>
+          )}
         </div>
         <div className="founder-media">
           <img src={content.image.src} alt={content.image.alt} />
@@ -81,7 +83,7 @@ export function ServicesCardsSection({ content }: SectionProps<ServicesCardsCont
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
               </div>
-              <ul aria-label={`${service.roleLabel ?? 'Includes'} — ${service.title}`}>
+              <ul aria-label={`${service.roleLabel ?? 'Includes'}: ${service.title}`}>
                 {service.roles.map((role) => <li key={role}>{role}</li>)}
               </ul>
               <span aria-hidden="true" className="service-row-arrow">↗</span>
@@ -174,7 +176,7 @@ export function AreasCardsSection({ content }: SectionProps<AreasCardsContent>) 
             group.image ? (
               <a
                 key={group.title}
-                href={group.href ?? '/clients'}
+                href={group.href ?? '/#work'}
                 target={group.href ? '_blank' : undefined}
                 rel={group.href ? 'noopener noreferrer' : undefined}
                 className="work-card"
@@ -215,7 +217,7 @@ export function ClientTestimonialSplitSection({ content }: SectionProps<ClientTe
           </blockquote>
           <div className="mt-8 pt-6 hairline-t max-w-2xl">
             <p className="eyebrow text-navy/80">{content.role}</p>
-            <p className="eyebrow mt-1">{content.meta} — {content.label}</p>
+            <p className="eyebrow mt-1">{content.meta} · {content.label}</p>
           </div>
         </div>
         <div className="page-hero-media" role="img" aria-label={content.image.alt}>

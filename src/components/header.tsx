@@ -8,13 +8,22 @@ import { siteConfig } from '@/config/site';
 
 const navItems = siteConfig.nav;
 
+// next.config's trailingSlash:true means usePathname() returns e.g. "/about/"
+// once on that route, while nav hrefs are defined without the trailing slash —
+// normalize both sides before comparing so the active state actually matches.
+function normalizePath(path: string): string {
+  return path.length > 1 ? path.replace(/\/$/, '') : path;
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const normalizedPathname = normalizePath(pathname);
 
-  const handleMobileNav = (href: string) => {
-    if (href.startsWith('/#') && pathname === '/') {
+  const handleNav = (href: string, event?: { preventDefault: () => void }) => {
+    if (href.startsWith('/#') && normalizedPathname === '/') {
+      event?.preventDefault();
       setOpen(false);
       const id = href.slice(2);
       const el = document.getElementById(id);
@@ -23,7 +32,8 @@ export function Header() {
       }
       return;
     }
-    router.push(href);
+    setOpen(false);
+    if (!event) router.push(href);
   };
 
   useEffect(() => {
@@ -35,12 +45,12 @@ export function Header() {
       <header className="site-header">
         <div className="container-page flex items-center justify-between h-[4.25rem] sm:h-[4.75rem]">
           <Link href="/" className="flex items-center shrink-0" aria-label={`${siteConfig.name} home`}>
-            <BcLogo variant="compact" height={40} className="w-auto" />
+            <BcLogo variant="full" height={40} className="w-auto" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
             {navItems.map(item => {
-              const active = pathname === item.href;
+              const active = normalizedPathname === item.href;
               return (
                 <Link
                   key={item.label}
@@ -51,8 +61,8 @@ export function Header() {
                 </Link>
               );
             })}
-            <a href="/#contact" className="btn-gold !py-3 !px-6">
-              Let’s talk
+            <a href="/#contact" className="btn-gold !py-3 !px-6" onClick={(e) => handleNav('/#contact', e)}>
+              Contact
             </a>
           </nav>
 
@@ -71,17 +81,20 @@ export function Header() {
         {open && (
           <div className="lg:hidden pb-4" style={{ background: 'var(--paper)' }}>
             {navItems.map(item => {
-              const active = pathname === item.href;
+              const active = normalizedPathname === item.href;
               return (
                 <button
                   key={item.label}
-                  onClick={() => handleMobileNav(item.href)}
+                  onClick={() => handleNav(item.href)}
                   className={`mobile-nav-link ${active ? 'mobile-nav-link-active' : ''}`}
                 >
                   {item.label}
                 </button>
               );
             })}
+            <button onClick={() => handleNav('/#contact')} className="mobile-nav-link">
+              Contact
+            </button>
             <div className="px-5 pt-4">
               <a href={`tel:${siteConfig.contact.phoneCompact}`} className="btn-gold w-full">
                 Call {siteConfig.contact.phone}

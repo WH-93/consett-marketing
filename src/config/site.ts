@@ -30,8 +30,8 @@ export const siteConfig = {
   },
 
   logo: {
-    full: '/logos/consett-marketing-header-logo.svg',
-    white: '/logos/consett-marketing-header-logo-white.svg',
+    full: '/logos/consett-marketing-wordmark-dark.png',
+    white: '/logos/consett-marketing-wordmark-white.png',
     compact: '/logos/c-arrow-logo.png',
     primary: '/logos/consett-marketing-primary-logo.svg',
     alt: 'Consett Marketing',
@@ -51,38 +51,22 @@ export const siteConfig = {
   },
 
   founder: {
-    name: 'Ben Copsey',
-    title: 'Founder',
-    linkedin: 'https://uk.linkedin.com/in/ben-copsey-826177a3',
+    name: 'Warren & Laura',
+    title: 'Founders',
   },
 
   nav: [
     { label: 'HOME', href: '/' },
-    { label: 'SERVICES', href: '/services' },
-    { label: 'WORK', href: '/clients' },
     { label: 'ABOUT', href: '/about' },
-    { label: 'CONTACT', href: '/contact' },
   ],
 
   footer: {
-    ctaHeadline: 'Your next move starts with a conversation.',
-    ctaSubtext:
-      'Whether you need a new website, better search visibility, or a clearer marketing plan — tell us where you want to be.',
-    ctaButton: 'Book a free strategy call',
     description: 'Marketing for local businesses. No retainers. Clear pricing.',
     quickLinks: [
-      { label: 'Services', href: '/services' },
-      { label: 'Our Work', href: '/clients' },
-      { label: 'For Trades & Local Services', href: '/candidates' },
+      { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
-      { label: 'Contact', href: '/contact' },
-    ],
-    services: [
-      'Web Design & Development',
-      'Search Engine Optimisation',
-      'Brand Strategy & Identity',
-      'Content & Copywriting',
-      'Digital Advertising',
+      { label: 'For Trades & Local Services', href: '/candidates' },
+      { label: 'Contact', href: '/#contact' },
     ],
   },
 
@@ -90,11 +74,11 @@ export const siteConfig = {
     template: '%s | Consett Marketing',
     defaultTitle: 'Consett Marketing | Marketing for Local Businesses',
     defaultDescription:
-      'Web design, SEO and brand strategy for local businesses. Solutions before services — based in Consett, serving the North East.',
+      'Web design, SEO and brand strategy for local businesses. Solutions before services. Based in Consett, serving the North East.',
   },
 
   schema: {
-    logo: 'https://consettmarketing.co.uk/logos/consett-marketing-header-logo.svg',
+    logo: 'https://consettmarketing.co.uk/logos/consett-marketing-wordmark-dark.png',
     image: 'https://consettmarketing.co.uk/reference/brand-board-final-reference.png',
     foundingDate: '2026-01-01',
     services: [

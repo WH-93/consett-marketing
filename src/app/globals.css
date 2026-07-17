@@ -126,7 +126,7 @@
 
   /* ── Editorial primitives ── */
   .eyebrow {
-    @apply uppercase font-bold text-navy/55;
+    @apply uppercase font-bold text-navy/60;
     font-size: 0.7rem;
     letter-spacing: 0.22em;
   }
@@ -138,6 +138,10 @@
     color: var(--orange);
     font-weight: 800;
   }
+  /* Home page's numbered section markers (01/02/04/05) read green, not orange —
+     scoped to this modifier rather than .band-black so inner-page hero eyebrows
+     (data-index="↗") are unaffected. */
+  .eyebrow-index-accent::before { color: #8FEA64; }
   .on-dark .eyebrow { color: rgba(247, 243, 236, 0.55); }
 
   .section-head {
@@ -204,7 +208,9 @@
     background-color: var(--paper);
     background-image: url('/patterns/green-arrow-tile.svg');
     background-repeat: repeat;
-    background-size: clamp(8.25rem, 12vw, 12.5rem);
+    /* ~35% smaller than the original 8.25/12/12.5rem tile so more arrows tile
+       uniformly across the same background field. */
+    background-size: clamp(5.4rem, 7.8vw, 8.1rem);
     background-position: 0 0;
   }
 
@@ -332,37 +338,14 @@
   .home-panel-center { justify-content: center; }
   .home-panel-wide > .band-black { width: min(100%, 78rem); margin-inline: auto; }
 
-  .band-split {
-    @apply grid gap-6 lg:grid-cols-2;
-    width: min(100%, 82rem);
-    margin-inline: auto;
-  }
-  .band-split .band-black { display: flex; flex-direction: column; align-items: flex-start; }
-  .band-split .band-black .band-actions { margin-top: auto; padding-top: 2rem; }
-
   /* Dark variants of shared editorial pieces */
-  .band-black .proof-strip { border-color: rgba(255, 255, 255, 0.18); margin-top: clamp(2.25rem, 4vw, 3.5rem); }
-  .band-black .proof-item + .proof-item { border-color: rgba(255, 255, 255, 0.18); }
-  @media (min-width: 640px) {
-    .band-black .proof-item:nth-child(even) { border-color: rgba(255, 255, 255, 0.18); }
-  }
-  @media (min-width: 1024px) {
-    .band-black .proof-item:not(:first-child) { border-color: rgba(255, 255, 255, 0.18); }
-  }
-  .band-black .proof-index { color: #8FEA64; }
-  .band-black .proof-title { color: #fff; }
-  .band-black .proof-desc { color: rgba(255, 255, 255, 0.62); }
 
   .band-black .service-index { border-color: rgba(255, 255, 255, 0.18); }
   .band-black .service-index-row { border-color: rgba(255, 255, 255, 0.18); }
   .band-black .service-index-num { color: rgba(255, 255, 255, 0.4); }
   .band-black .service-index-title { color: #fff; }
   .band-black .service-index-desc { color: rgba(255, 255, 255, 0.62); }
-  .band-black .service-index-desc em { color: rgba(255, 255, 255, 0.42); }
-  .band-black .service-index-arrow { color: rgba(255, 255, 255, 0.4); }
-  .band-black .service-index-row:hover .service-index-title,
-  .band-black .service-index-row:hover .service-index-num { color: #8FEA64; }
-  .band-black .service-index-row:hover .service-index-arrow { color: #8FEA64; }
+  .band-black .service-index-desc li { color: rgba(255, 255, 255, 0.55); }
 
   .band-black .work-grid { margin-top: clamp(2rem, 3.5vw, 3rem); }
   .band-black .work-card { border: 1px solid rgba(255, 255, 255, 0.14); }
@@ -381,7 +364,7 @@
     background-color: var(--paper);
     background-image: url('/patterns/green-arrow-tile.svg');
     background-repeat: repeat;
-    background-size: clamp(8.25rem, 12vw, 12.5rem);
+    background-size: clamp(5.4rem, 7.8vw, 8.1rem);
     padding: clamp(2.75rem, 6vw, 5.5rem) clamp(1rem, 5vw, 5rem);
   }
   .page-hero-band {
@@ -416,26 +399,6 @@
     .home-hero-title { font-size: clamp(3rem, 14vw, 4.6rem); }
   }
 
-  /* ── Proof strip ── */
-  .proof-strip {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
-    margin-top: clamp(3rem, 6vw, 5rem);
-    border-top: 1px solid var(--hairline);
-  }
-  .proof-item {
-    padding: 1.6rem 2rem 0.4rem 0;
-  }
-  .proof-item + .proof-item { border-top: 1px solid var(--hairline); }
-  @media (min-width: 640px) {
-    .proof-item { border-top: 0 !important; }
-    .proof-item:nth-child(even) { border-left: 1px solid var(--hairline); padding-left: 2rem; }
-  }
-  @media (min-width: 1024px) {
-    .proof-item:not(:first-child) { border-left: 1px solid var(--hairline); padding-left: 2rem; }
-  }
-  .proof-index { color: var(--orange); font-weight: 800; font-size: 0.72rem; letter-spacing: 0.14em; }
-  .proof-title { @apply mt-3 uppercase font-extrabold text-navy; font-size: 0.8rem; letter-spacing: 0.16em; }
-  .proof-desc { @apply mt-2.5 text-navy/60; font-size: 0.92rem; line-height: 1.65; }
 
   /* ── Service index (home) ── */
   .service-index { border-top: 1px solid var(--hairline); }
@@ -443,35 +406,29 @@
     @apply grid items-baseline gap-x-8 gap-y-3 lg:grid-cols-[4.5rem_minmax(0,1.05fr)_minmax(0,0.95fr)_2.5rem];
     padding-block: clamp(1.75rem, 3vw, 2.6rem);
     border-bottom: 1px solid var(--hairline);
-    text-decoration: none;
   }
   .service-index-num {
     @apply font-heading font-bold text-navy/35;
     font-size: 0.95rem;
-    transition: color 0.25s ease;
   }
   .service-index-title {
     @apply font-heading font-extrabold text-navy normal-case;
     font-size: clamp(1.55rem, 3vw, 2.4rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
-    transition: color 0.25s ease;
   }
   .service-index-desc { @apply text-navy/60; font-size: 0.95rem; line-height: 1.65; max-width: 30rem; }
-  .service-index-desc em {
-    @apply not-italic block mt-2 uppercase font-bold text-navy/45;
+  .service-index-desc p { margin: 0; }
+  .service-index-desc ul {
+    @apply mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-navy/45;
+    list-style: none;
+    padding: 0;
+  }
+  .service-index-desc li {
+    @apply uppercase font-bold;
     font-size: 0.68rem;
     letter-spacing: 0.16em;
   }
-  .service-index-arrow {
-    @apply text-navy/30 justify-self-end self-center hidden lg:block;
-    font-size: 1.6rem;
-    line-height: 1;
-    transition: transform 0.25s ease, color 0.25s ease;
-  }
-  .service-index-row:hover .service-index-title,
-  .service-index-row:hover .service-index-num { color: var(--orange); }
-  .service-index-row:hover .service-index-arrow { color: var(--orange); transform: translate(4px, -4px); }
 
   /* ── Dark bands ── */
   .band-dark { background: var(--ink); color: var(--paper); }
@@ -541,11 +498,12 @@
     text-decoration: none;
   }
   .contact-final-link-label {
-    @apply uppercase font-bold;
+    @apply uppercase font-bold inline-flex items-center gap-2;
     color: rgba(247, 243, 236, 0.5);
     font-size: 0.68rem;
     letter-spacing: 0.2em;
   }
+  .contact-final-link-icon { flex-shrink: 0; }
   .contact-final-link-value {
     @apply font-heading font-bold;
     color: var(--paper);
@@ -716,20 +674,11 @@
   .founder-media-note { margin-top: 1rem; color: rgba(247, 243, 236, 0.72); font-size: 0.95rem; line-height: 1.7; max-width: 28rem; }
 
   /* ── Footer ── */
-  .site-footer { background: var(--ink); color: var(--paper); }
-  .footer-cta { border-bottom: 1px solid var(--hairline-light); }
+  .site-footer { background: #000; color: var(--paper); }
   .footer-heading { @apply uppercase font-bold; color: rgba(247, 243, 236, 0.45); font-size: 0.66rem; letter-spacing: 0.22em; }
   .footer-link { color: rgba(247, 243, 236, 0.72); font-size: 0.92rem; transition: color 0.2s ease; }
   a.footer-link:hover { color: var(--orange); }
   .footer-brand-mark { @apply object-contain; height: 44px; width: auto; }
-
-  .bg-bark {
-    background-color: var(--ink);
-    background-image: url('/brand-elements/consett-steelworks-line-art-white.svg');
-    background-repeat: no-repeat;
-    background-size: min(680px, 72vw);
-    background-position: right bottom;
-  }
 
   /* ── Mobile call bar ── */
   .mobile-call-bar {
@@ -737,6 +686,12 @@
     background: var(--ink);
     color: var(--paper);
     border-top: 1px solid var(--hairline-light);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  /* Reserve room for the fixed call bar so the footer's last line
+     can actually be scrolled into view on mobile/tablet. */
+  @media (max-width: 1023px) {
+    .site-footer { padding-bottom: calc(4.75rem + env(safe-area-inset-bottom)); }
   }
 }
 
@@ -785,5 +740,5 @@
   .animate-fade-in { animation: none; opacity: 1; transform: none; }
   .ticker-track { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
-  .work-card img, .work-card-arrow, .service-index-arrow, .case-study-arrow { transition: none; }
+  .work-card img, .work-card-arrow, .case-study-arrow { transition: none; }
 }

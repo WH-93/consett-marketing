@@ -7,3 +7,4 @@ out/
 .terraform/
 *.tfstate*
 .terraform.lock.hcl
+.logs/

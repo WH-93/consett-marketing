@@ -22,6 +22,12 @@ export function SplitHeroSection({ content }: SectionProps<SplitHeroContent>) {
               {content.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
           )}
+          {content.signature && (
+            <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.18)' }}>
+              <p className="font-heading font-bold text-2xl" style={{ color: '#fff' }}>{content.signature}</p>
+              {content.role && <p className="eyebrow mt-1">{content.role}</p>}
+            </div>
+          )}
           {content.actions && (
             <div className="hero-actions">
               {content.actions.map((cta) => <ButtonLink key={cta.label} cta={cta} />)}

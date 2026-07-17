@@ -1,0 +1,4 @@
+# Old /services and /work pages were folded into anchor sections on the home
+# page. Redirect any indexed/bookmarked links rather than 404ing them.
+/services  /#services  301
+/clients   /#work       301

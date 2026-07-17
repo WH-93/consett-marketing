@@ -16,6 +16,8 @@ export interface SplitHeroContent {
   headline: RichHeadingLine[];
   subhead?: string;
   body?: string[];
+  signature?: string;
+  role?: string;
   actions?: CtaLink[];
   image: ImageAsset;
   mobileImage?: ImageAsset;
@@ -133,8 +135,8 @@ export interface FounderInsightContent {
   eyebrow: string;
   title: string;
   body: string[];
-  signature: string;
-  role: string;
+  signature?: string;
+  role?: string;
   quote: QuoteBlock;
 }
 

@@ -15,8 +15,6 @@ export const publicPageMaps = {
     page: 'about',
     sections: [
       { id: 'hero', type: 'splitHero', variant: 'splitImage' },
-      { id: 'founder', type: 'founderInsight', variant: 'imageCopyQuote' },
-      { id: 'values', type: 'featureGrid', variant: 'light' },
     ],
   },
   services: {

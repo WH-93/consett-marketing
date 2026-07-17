@@ -5,7 +5,7 @@ import { publicPageMaps } from '@/site/story-maps/public-pages';
 
 export const metadata: Metadata = {
   title: 'About Consett Marketing',
-  description: 'Built in Consett, working across the North East. Solutions before services — straight answers, clear pricing, measured results.',
+  description: 'Meet the husband-and-wife team behind Consett Marketing, combining technical strategy with brand, content and campaign expertise.',
 };
 
 export default function AboutPage() {

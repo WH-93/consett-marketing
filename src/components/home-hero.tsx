@@ -41,7 +41,6 @@ export function HomeHero() {
     <section aria-labelledby="landing-hero-title">
       <div className="field-topline">
         <span className="field-topline-brand">
-          <img src={hero.image.src} alt={hero.image.alt} />
           Consett Marketing
         </span>
         <span>{config.tagline}</span>
@@ -50,7 +49,7 @@ export function HomeHero() {
 
       <div className="home-hero-panel">
         <div className="band-black home-hero-band">
-          <p className="home-hero-kicker eyebrow">Consett, County Durham — working across the North East</p>
+          <p className="home-hero-kicker eyebrow">Consett, County Durham · Working across the North East</p>
           <div id="landing-hero-title">
             <HeroHeadline headline={hero.headline} />
           </div>

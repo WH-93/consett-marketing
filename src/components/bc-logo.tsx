@@ -18,8 +18,8 @@ const sources: Record<LogoVariant, string> = {
 
 const heights: Record<LogoVariant, number> = siteConfig.logo.heights;
 const aspectRatios: Record<LogoVariant, number> = {
-  full: 420 / 96,
-  white: 420 / 96,
+  full: 592 / 206,
+  white: 318 / 166,
   compact: 1,
 };
 

@@ -12,7 +12,6 @@ describe('HomeHero', () => {
 
     const html = renderToStaticMarkup(createElement(HomeHero));
     assert.ok(html.includes('Let’s get'), 'should contain main headline');
-    assert.ok(html.includes('your brand'), 'should contain brand headline words');
     assert.ok(html.includes('growing'), 'should contain final headline phrase');
   });
 
@@ -26,13 +25,14 @@ describe('HomeHero', () => {
     assert.ok(html.includes('See the work'), 'should have work CTA');
   });
 
-  it('renders hero image', async () => {
+  it('renders the topline brand mark without an arrow icon', async () => {
     const { HomeHero } = await import('../components/home-hero');
     const { renderToStaticMarkup } = await import('react-dom/server');
     const { createElement } = await import('react');
 
     const html = renderToStaticMarkup(createElement(HomeHero));
-    assert.ok(html.includes('c-arrow-logo'), 'should include the C arrow logo');
+    assert.ok(html.includes('Consett Marketing'), 'should render the brand name in the topline');
+    assert.ok(!html.includes('c-arrow-logo'), 'topline should no longer include the arrow logo image');
   });
 });
 

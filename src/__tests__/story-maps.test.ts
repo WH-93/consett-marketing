@@ -38,13 +38,13 @@ describe('public marketing story maps', () => {
     );
 
     assert.ok(html.includes('Let’s get'), 'home hero headline should render');
-    assert.ok(html.includes('Strategy, websites, SEO'), 'home hero subhead should render');
+    assert.ok(html.includes('Websites, SEO, branding'), 'home hero subhead should render');
     assert.ok(html.includes('Start a Conversation'), 'home contact section should render');
   });
 
   it('renders all public marketing pages from profile content rather than hardcoded page JSX', () => {
     const expectations = {
-      about: 'Built in Consett',
+      about: 'Consett Marketing',
       services: 'Insight',
       candidates: 'You know your trade',
       clients: 'Projects with',
