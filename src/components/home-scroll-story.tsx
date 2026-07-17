@@ -102,7 +102,7 @@ export function HomeScrollStory() {
             <div className="contact-final-link">
               <span className="contact-final-link-label">
                 <BcIcon name="location" size={14} className="contact-final-link-icon" />
-                Studio
+                Location
               </span>
               <span className="contact-final-link-value">{config.contact.location}</span>
             </div>
