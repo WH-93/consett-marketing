@@ -10,9 +10,6 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-12">
           <div>
             <img src={siteConfig.logo.white} alt={siteConfig.logo.alt} className="footer-brand-mark" />
-            <p className="text-sm leading-relaxed mt-5" style={{ color: 'rgba(247,243,236,0.6)' }}>
-              {footer.description}
-            </p>
           </div>
 
           <div>

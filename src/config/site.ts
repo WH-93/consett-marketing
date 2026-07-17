@@ -61,7 +61,6 @@ export const siteConfig = {
   ],
 
   footer: {
-    description: 'Marketing for local businesses. No retainers. Clear pricing.',
     quickLinks: [
       { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
