@@ -51,7 +51,7 @@ export const consettMarketingProfile = {
     home: {
       hero: {
         headline: [[{ text: 'Let’s get' }], [{ text: 'growing.', accent: true }]],
-        subhead: 'Websites, SEO, branding and content for ambitious businesses.',
+        subhead: 'Websites, SEO, branding and content.',
         actions: [{ href: '/#contact', label: 'Start a project', style: 'primary' as const }, { href: '/#work', label: 'See the work', style: 'outline' as const }],
         image: { src: '/logos/c-arrow-logo.png', alt: 'Consett Marketing C arrow logo' },
       },
