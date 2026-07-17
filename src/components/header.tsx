@@ -92,12 +92,9 @@ export function Header() {
                 </button>
               );
             })}
-            <button onClick={() => handleNav('/#contact')} className="mobile-nav-link">
-              Contact
-            </button>
             <div className="px-5 pt-4">
-              <a href={`tel:${siteConfig.contact.phoneCompact}`} className="btn-gold w-full">
-                Call {siteConfig.contact.phone}
+              <a href="/#contact" className="btn-gold w-full" onClick={(e) => handleNav('/#contact', e)}>
+                Contact
               </a>
             </div>
           </div>

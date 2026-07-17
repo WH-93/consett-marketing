@@ -17,7 +17,7 @@ const credentials = [
 const serviceCards = [
   { icon: 'globe' as const, title: 'Website Development & Digital Solutions', desc: 'Clean, fast websites built to convert. Mobile-first, SEO-ready, easy to manage.', roles: ['Business sites', 'Landing pages', 'E-commerce', 'Rebuilds & refreshes'], roleLabel: 'Includes' },
   { icon: 'search' as const, title: 'Search Engine Optimisation & AI Search', desc: 'Get found by the people searching for what you do. Local SEO, national SEO, technical audits.', roles: ['Keyword strategy', 'Technical SEO', 'Local search', 'Content planning'], roleLabel: 'Includes' },
-  { icon: 'star' as const, title: 'Brand & Content', desc: 'Bring your brand to life across every channel. Building the identity, content and creative that make it stand out.', roles: ['Branding / Visual identity', 'Content creation / Campaigns'], roleLabel: 'Includes' },
+  { icon: 'star' as const, title: 'Brand & Content', desc: 'Bring your brand to life across every channel. Building the identity, content and creative that make it stand out.', roles: ['Branding', 'Visual identity', 'Content creation', 'Campaigns'], roleLabel: 'Includes' },
 ];
 
 const process = [
