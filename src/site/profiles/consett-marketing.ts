@@ -32,14 +32,14 @@ const workExamples = [
     title: 'Ross Webster Tree Services',
     desc: 'Brand, website and local SEO for a County Durham tree surgeon. Full identity from mark to messaging.',
     href: 'https://rosswebstertreeservices.co.uk',
-    image: '/reference/greyscale-county-durham-trades.png',
+    image: '/reference/ross-webster-case-study.png',
     tag: 'Brand · Web · Local SEO',
   },
   {
     title: 'BC Financial Search',
     desc: 'Specialist recruitment brand. Positioning, website and content for a founder-led search firm.',
     href: 'https://bcfinancialsearch.co.uk',
-    image: '/reference/greyscale-strategy-meeting.png',
+    image: '/reference/bc-financial-case-study.webp',
     tag: 'Positioning · Web · Content',
   },
 ];
@@ -69,14 +69,14 @@ export const consettMarketingProfile = {
         signature: siteConfig.founder.name,
         role: siteConfig.founder.title,
         cta: { href: '/about', label: 'More About Us', style: 'primary' as const },
-        image: { src: '/reference/greyscale-strategy-meeting.png', alt: 'Greyscale strategy meeting with business charts' },
+        image: { src: '/reference/consett-marketing-about.jpeg', alt: 'Warren and Laura Hayes, the team behind Consett Marketing' },
         quote: { eyebrow: 'Solutions before services.', text: 'Most agencies sell you a package before they understand the problem.', body: 'We start with the outcome you want and work backwards. If you do not need a new website, we will tell you. If SEO is the wrong lever, we will say so.' },
       },
       work: { eyebrow: 'Recent Work', title: 'See what we’ve been working on.', groups: workExamples, cta: { href: '/#work', label: 'See the work', style: 'primary' as const } },
       contact: { theme: 'home' as const, eyebrow: 'Start a Conversation', title: 'Let’s talk about what you need.', body: ['Tell us a bit about your business and what you need help with. We’ll have an honest conversation about what makes sense and where to start.'] },
     },
     about: {
-      hero: { headline: [[{ text: 'About ' }, { text: 'Consett Marketing', accent: true }]], body: ['We’re a husband-and-wife team with different skills but a shared approach to good marketing.', 'Warren brings the technical side, with a background in software engineering, web development, SEO, strategy and sales. Laura brings experience across brand, content and campaign delivery, having worked in brand management for the drinks industry and now as a marketing manager at a University.', 'It means we can look at the whole picture, not just one part of it.'], image: { src: '/reference/greyscale-local-web-growth.png', alt: 'Greyscale Consett business website and steelworks silhouette' } },
+      hero: { headline: [[{ text: 'About ' }, { text: 'Consett Marketing', accent: true }]], body: ['We’re a husband-and-wife team with different skills but a shared approach to good marketing.', 'Warren brings the technical side, with a background in software engineering, web development, SEO, strategy and sales. Laura brings experience across brand, content and campaign delivery, having worked in brand management for the drinks industry and now as a marketing manager at a University.', 'It means we can look at the whole picture, not just one part of it.'], image: { src: '/reference/consett-marketing-about.jpeg', alt: 'Warren and Laura Hayes, the team behind Consett Marketing' } },
     },
     services: {
       hero: { eyebrow: 'Services', headline: [[{ text: 'Insight.' }], [{ text: 'Strategy. ' }, { text: 'Growth.', accent: true }]], body: ['Web design, SEO, brand strategy and content, delivered as fixed-scope projects with clear timelines and clear pricing.', 'No retainers. No hidden costs. Just the work you need, done properly.'], actions: [{ href: '/#contact', label: 'Book a free strategy call', style: 'primary' as const }], image: { src: '/reference/greyscale-local-web-growth.png', alt: 'Greyscale website and growth plan for a Consett business' } },
