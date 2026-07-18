@@ -208,9 +208,9 @@
     background-color: var(--paper);
     background-image: url('/patterns/green-arrow-tile.svg');
     background-repeat: repeat;
-    /* ~35% smaller than the original 8.25/12/12.5rem tile so more arrows tile
+    /* Reduced a further 30% from the 5.4/7.8/8.1rem tile so more arrows tile
        uniformly across the same background field. */
-    background-size: clamp(5.4rem, 7.8vw, 8.1rem);
+    background-size: clamp(3.78rem, 5.46vw, 5.67rem);
     background-position: 0 0;
   }
 
@@ -364,7 +364,7 @@
     background-color: var(--paper);
     background-image: url('/patterns/green-arrow-tile.svg');
     background-repeat: repeat;
-    background-size: clamp(5.4rem, 7.8vw, 8.1rem);
+    background-size: clamp(3.78rem, 5.46vw, 5.67rem);
     padding: clamp(2.75rem, 6vw, 5.5rem) clamp(1rem, 5vw, 5rem);
   }
   .page-hero-band {
