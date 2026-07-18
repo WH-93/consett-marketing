@@ -45,7 +45,7 @@ export function Header() {
       <header className="site-header">
         <div className="container-page flex items-center justify-between h-[4.25rem] sm:h-[4.75rem]">
           <Link href="/" className="flex items-center shrink-0" aria-label={`${siteConfig.name} home`}>
-            <BcLogo variant="full" height={40} className="w-auto" />
+            <BcLogo variant="full" height={52} className="w-auto" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8 xl:gap-10">

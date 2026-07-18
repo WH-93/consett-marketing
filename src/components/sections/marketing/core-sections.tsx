@@ -2,10 +2,11 @@ import React from 'react';
 import { ContactCard } from '@/components/contact-card';
 import { ButtonLink, RichHeading } from './shared';
 import type { ContactSectionContent, ProofBandContent, SectionProps, SplitHeroContent } from './types';
+import PageHeroField from '@/components/page-hero-field';
 
 export function SplitHeroSection({ content }: SectionProps<SplitHeroContent>) {
   return (
-    <section className="page-hero-field">
+    <PageHeroField>
       <div className="band-black page-hero-band">
         <div className="page-hero-copy">
           {content.eyebrow && <p className="eyebrow eyebrow-index mb-6" data-index="↗">{content.eyebrow}</p>}
@@ -45,7 +46,7 @@ export function SplitHeroSection({ content }: SectionProps<SplitHeroContent>) {
           )}
         </div>
       </div>
-    </section>
+    </PageHeroField>
   );
 }
 

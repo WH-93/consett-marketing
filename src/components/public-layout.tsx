@@ -1,18 +1,25 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useRef } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { siteConfig } from '@/config/site';
+import ArrowFieldParallax from '@/components/arrow-field-parallax';
 
 export function PublicLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith('/admin');
+  const isHome = !isAdmin && pathname === '/';
+  const homeFieldRef = useRef<HTMLElement>(null);
 
   return (
     <>
       {!isAdmin && <Header />}
-      <main className={!isAdmin && pathname === '/' ? 'home-field' : undefined}>{children}</main>
+      <main ref={isHome ? homeFieldRef : undefined} className={isHome ? 'home-field' : undefined}>
+        {isHome && <ArrowFieldParallax fieldRef={homeFieldRef} />}
+        {children}
+      </main>
       {!isAdmin && <Footer />}
       {!isAdmin && (
         <div className="mobile-call-bar">

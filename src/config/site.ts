@@ -30,12 +30,11 @@ export const siteConfig = {
   },
 
   logo: {
-    full: '/logos/consett-marketing-wordmark-dark.png',
-    white: '/logos/consett-marketing-wordmark-white.png',
-    compact: '/logos/c-arrow-logo.png',
-    primary: '/logos/consett-marketing-primary-logo.svg',
+    full: '/logos/consett-marketing-logo.png',
+    white: '/logos/consett-marketing-logo-white.png',
+    compact: '/logos/consett-icon-green.png',
     alt: 'Consett Marketing',
-    heights: { full: 44, white: 44, compact: 42 } as Record<string, number>,
+    heights: { full: 52, white: 44, compact: 52 } as Record<string, number>,
   },
 
   contact: {
@@ -76,7 +75,7 @@ export const siteConfig = {
   },
 
   schema: {
-    logo: 'https://consettmarketing.co.uk/logos/consett-marketing-wordmark-dark.png',
+    logo: 'https://consettmarketing.co.uk/logos/consett-marketing-logo.png',
     image: 'https://consettmarketing.co.uk/reference/brand-board-final-reference.png',
     foundingDate: '2026-01-01',
     services: [

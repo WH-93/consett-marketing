@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: siteConfig.seo.defaultTitle,
   },
   description: siteConfig.seo.defaultDescription,
-  icons: { icon: '/logos/monogram-c-arrow-navy-square.svg' },
+  icons: { icon: '/logos/consett-icon-green.png' },
   openGraph: {
     type: 'website',
     url: '/',

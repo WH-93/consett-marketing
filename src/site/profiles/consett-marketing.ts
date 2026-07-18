@@ -15,9 +15,9 @@ const credentials = [
 ];
 
 const serviceCards = [
-  { icon: 'globe' as const, title: 'Website & Digital Solutions', desc: 'Clean, fast websites built to convert. Mobile-first, SEO-ready, easy to manage.', roles: ['Business sites', 'Landing pages', 'E-commerce', 'Rebuilds & refreshes'], roleLabel: 'Includes' },
-  { icon: 'search' as const, title: 'SEO & AI Search', desc: 'Get found by the people searching for what you do. Local SEO, national SEO, technical audits.', roles: ['Keyword strategy', 'Technical SEO', 'Local search', 'Content planning'], roleLabel: 'Includes' },
-  { icon: 'star' as const, title: 'Brand & Content', desc: 'Bring your brand to life across every channel. Building the identity, content and creative that make it stand out.', roles: ['Branding', 'Visual identity', 'Content creation', 'Campaigns'], roleLabel: 'Includes' },
+  { icon: 'globe' as const, title: 'Website & Digital Solutions', desc: 'Clean, fast websites built to convert. Mobile-first, SEO-ready, easy to manage.', roles: ['Business sites', 'Landing pages', 'E-commerce', 'Rebuilds & refreshes', 'Custom apps'], roleLabel: 'Includes' },
+  { icon: 'search' as const, title: 'SEO & AI Search', desc: 'Get found by the people searching for what you do. Local SEO, national SEO, technical audits.', roles: ['Keyword strategy', 'Technical SEO', 'Local search', 'Content planning', 'Sales funnels', 'Data insights'], roleLabel: 'Includes' },
+  { icon: 'star' as const, title: 'Brand & Content', desc: 'Bring your brand to life across every channel. Building the identity, content and creative that make it stand out.', roles: ['Branding', 'Visual identity', 'Content creation', 'Photography', 'Video', 'Campaigns'], roleLabel: 'Includes' },
 ];
 
 const process = [

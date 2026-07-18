@@ -9,10 +9,14 @@ export function Reveal({
   children,
   className = '',
   as: Tag = 'div',
+  threshold = 0.12,
+  rootMargin = '-8%',
 }: {
   children: React.ReactNode;
   className?: string;
   as?: keyof React.JSX.IntrinsicElements;
+  threshold?: number;
+  rootMargin?: string;
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
@@ -26,11 +30,11 @@ export function Reveal({
           obs.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      { threshold, rootMargin: `0px 0px ${rootMargin} 0px` }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold, rootMargin]);
 
   return React.createElement(Tag, { ref, className: `reveal ${className}`.trim() }, children);
 }

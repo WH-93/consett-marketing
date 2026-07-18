@@ -27,7 +27,7 @@ export function HomeScrollStory() {
     <div>
       {/* 01 — What we do */}
       <section id="services" className="home-panel home-panel-wide">
-        <Reveal className="band-black">
+        <Reveal className="band-black" threshold={0.20} rootMargin="-15%">
           <BandHead index="01" label="What we do" />
           <h2 className="band-title">How we can <span className="band-accent">help.</span></h2>
           <div className="service-index mt-10">

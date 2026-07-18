@@ -64,7 +64,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.09em;
     padding: 0.95rem 1.8rem;
-    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
   .btn-gold,
@@ -91,7 +91,7 @@
     content: '↗';
     font-size: 1rem;
     line-height: 1;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s ease;
   }
   .btn-gold:hover::after,
   .btn-outline:hover::after { transform: translate(2px, -2px); }
@@ -166,9 +166,9 @@
     letter-spacing: 0.14em;
     border-bottom: 1px solid var(--hairline);
     padding-bottom: 0.35rem;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    transition: color 0.24s ease, border-color 0.24s ease;
   }
-  .text-link::after { content: '↗'; font-size: 0.95rem; transition: transform 0.25s ease; }
+  .text-link::after { content: '↗'; font-size: 0.95rem; transition: transform 0.3s ease; }
   .text-link:hover { color: var(--orange); border-color: var(--orange); }
   .text-link:hover::after { transform: translate(2px, -2px); }
   .on-dark .text-link { color: var(--paper); border-color: var(--hairline-light); }
@@ -191,7 +191,7 @@
     background-repeat: no-repeat;
     background-size: 0% 2px;
     background-position: left bottom;
-    transition: color 0.2s ease, background-size 0.3s ease;
+    transition: color 0.24s ease, background-size 0.36s ease;
   }
   .nav-link:hover { color: var(--ink); background-size: 100% 2px; }
   .nav-link-active { color: var(--ink); background-size: 100% 2px; }
@@ -288,10 +288,10 @@
     display: block;
     padding-bottom: 0.1em;
     margin-bottom: -0.06em;
-    animation: heroTextReveal 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: heroTextReveal 960ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-  .ed-hero-title-line:nth-child(2) { animation-delay: 110ms; }
-  .ed-hero-title-line:nth-child(3) { animation-delay: 220ms; }
+  .ed-hero-title-line:nth-child(2) { animation-delay: 132ms; }
+  .ed-hero-title-line:nth-child(3) { animation-delay: 264ms; }
   .ed-hero-title-accent { color: var(--green); }
   .home-hero-kicker { @apply eyebrow flex items-center gap-3; margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
   .home-hero-sub { margin-top: clamp(1.4rem, 2.4vw, 2.1rem); }
@@ -307,7 +307,7 @@
   .ticker-track {
     display: flex;
     width: max-content;
-    animation: tickerScroll 42s linear infinite;
+    animation: tickerScroll 50.4s linear infinite;
   }
   .ticker-group { display: flex; align-items: center; flex-shrink: 0; }
   .ticker-group span {
@@ -446,7 +446,7 @@
     @apply absolute inset-0 h-full w-full object-cover;
     filter: grayscale(1) contrast(1.05);
     opacity: 0.85;
-    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    transition: transform 0.96s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.48s ease;
   }
   .work-card::after {
     content: '';
@@ -474,7 +474,7 @@
     height: 3rem;
     border: 1px solid rgba(247, 243, 236, 0.4);
     font-size: 1.15rem;
-    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
   }
   .work-card:hover .work-card-arrow { background: var(--orange); border-color: var(--orange); transform: translate(2px, -2px); }
 
@@ -510,7 +510,7 @@
     color: var(--paper);
     font-size: clamp(1.25rem, 3vw, 2.3rem);
     letter-spacing: -0.025em;
-    transition: color 0.25s ease;
+    transition: color 0.3s ease;
   }
   a.contact-final-link:hover .contact-final-link-value { color: var(--orange); }
 
@@ -522,9 +522,9 @@
     letter-spacing: -0.045em;
   }
   .hero-title-line { display: block; padding-bottom: 0.1em; margin-bottom: -0.06em; }
-  .hero-title-reveal .hero-title-line { animation: heroTextReveal 760ms cubic-bezier(0.22, 1, 0.36, 1) both; }
-  .hero-title-reveal .hero-title-line:nth-child(2) { animation-delay: 120ms; }
-  .hero-title-reveal .hero-title-line:nth-child(3) { animation-delay: 240ms; }
+  .hero-title-reveal .hero-title-line { animation: heroTextReveal 912ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .hero-title-reveal .hero-title-line:nth-child(2) { animation-delay: 144ms; }
+  .hero-title-reveal .hero-title-line:nth-child(3) { animation-delay: 288ms; }
 
   .page-hero-copy .body-copy { font-size: clamp(1rem, 1.3vw, 1.15rem); max-width: 36rem; }
   .hero-actions { @apply mt-9 flex flex-col sm:flex-row gap-3.5 items-stretch sm:items-center; }
@@ -612,7 +612,7 @@
     @apply relative overflow-hidden rounded-[20px] bg-white p-8 sm:p-10 flex flex-col;
     border: 1px solid var(--hairline);
     min-height: 280px;
-    transition: border-color 0.25s ease;
+    transition: border-color 0.3s ease;
   }
   .case-study-card:hover { border-color: rgba(0, 19, 38, 0.35); }
   .case-study-tag { @apply uppercase font-bold text-navy/45; font-size: 0.66rem; letter-spacing: 0.2em; }
@@ -628,7 +628,7 @@
     @apply mt-auto pt-8 self-end text-navy/30;
     font-size: 1.6rem;
     line-height: 1;
-    transition: color 0.25s ease, transform 0.25s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
   }
   .case-study-card:hover .case-study-arrow { color: var(--orange); transform: translate(3px, -3px); }
 
@@ -677,7 +677,7 @@
   /* ── Footer ── */
   .site-footer { background: #000; color: var(--paper); }
   .footer-heading { @apply uppercase font-bold; color: rgba(247, 243, 236, 0.45); font-size: 0.66rem; letter-spacing: 0.22em; }
-  .footer-link { color: rgba(247, 243, 236, 0.72); font-size: 0.92rem; transition: color 0.2s ease; }
+  .footer-link { color: rgba(247, 243, 236, 0.72); font-size: 0.92rem; transition: color 0.24s ease; }
   a.footer-link:hover { color: var(--orange); }
   .footer-brand-mark { @apply object-contain; height: 44px; width: auto; }
 
@@ -720,15 +720,30 @@
   to { transform: translateX(-50%); }
 }
 
-.animate-fade-in { animation: fadeInUp 0.75s ease-out both; }
+.animate-fade-in { animation: fadeInUp 0.9s ease-out both; }
 
 /* Scroll reveal — hidden state only applies once JS confirms it can reveal */
 .js .reveal {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.84s cubic-bezier(0.22, 1, 0.36, 1), transform 0.84s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .js .reveal.reveal-in { opacity: 1; transform: translateY(0); }
+
+/* Staggered service-card reveals — sequential fade-up with subtle blur,
+   triggered when the parent .reveal-in fires. */
+.js .reveal .service-index-row { opacity: 0; }
+.js .reveal-in .service-index-row {
+  animation: serviceReveal 0.86s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.js .reveal-in .service-index-row:nth-child(1) { animation-delay: 0.15s; }
+.js .reveal-in .service-index-row:nth-child(2) { animation-delay: 0.50s; }
+.js .reveal-in .service-index-row:nth-child(3) { animation-delay: 0.85s; }
+
+@keyframes serviceReveal {
+  from { opacity: 0; transform: translateY(20px); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .ed-hero-title-line,
@@ -741,5 +756,6 @@
   .animate-fade-in { animation: none; opacity: 1; transform: none; }
   .ticker-track { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal-in .service-index-row { animation: none; opacity: 1; transform: none; filter: none; }
   .work-card img, .work-card-arrow, .case-study-arrow { transition: none; }
 }
