@@ -99,8 +99,14 @@ export function HomeScrollStory() {
               </span>
               <span className="contact-final-link-value">{config.contact.phone}</span>
             </a>
-            <a href="https://wa.me/447342620366" className="btn-gold" target="_blank" rel="noopener noreferrer">
-              Message on WhatsApp
+            <a href="https://wa.me/447342620366" className="contact-final-link group" target="_blank" rel="noopener noreferrer">
+              <span className="contact-final-link-label">
+                <BcIcon name="whatsapp" size={14} className="contact-final-link-icon" />
+                Whatsapp
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider transition-colors group-hover:bg-white group-hover:text-navy" style={{ background: '#8FEA64', color: '#050607' }}>
+                Message us ↗
+              </span>
             </a>
             <div className="contact-final-link">
               <span className="contact-final-link-label">
