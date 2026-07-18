@@ -32,7 +32,7 @@ export const siteConfig = {
   logo: {
     full: '/logos/consett-marketing-logo.png',
     white: '/logos/consett-marketing-logo-white.png',
-    compact: '/logos/consett-icon-green.png',
+    compact: '/logos/consettmarketingfavicon.png',
     alt: 'Consett Marketing',
     heights: { full: 52, white: 44, compact: 52 } as Record<string, number>,
   },

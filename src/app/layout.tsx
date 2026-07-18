@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: siteConfig.seo.defaultTitle,
   },
   description: siteConfig.seo.defaultDescription,
-  icons: { icon: '/logos/consett-icon-green.png' },
+  icons: { icon: '/logos/consettmarketingfavicon.png' },
   openGraph: {
     type: 'website',
     url: '/',
@@ -89,6 +89,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
         ))}
         <link href={fonts.googleFontsUrl} rel="stylesheet" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logos/consettmarketingfavicon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
