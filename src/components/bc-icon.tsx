@@ -22,6 +22,7 @@ import {
   Lock,
   Globe,
   PenTool,
+  MessageCircle,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -51,6 +52,7 @@ const icons: Record<string, LucideIcon> = {
   lock: Lock,              // padlock — security, insurance, certified
   globe: Globe,            // web / internet
   pen: PenTool,            // writing / copywriting / content
+  whatsapp: MessageCircle,  // WhatsApp / messaging
 };
 
 export type BcIconName = keyof typeof icons;
