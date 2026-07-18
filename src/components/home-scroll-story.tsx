@@ -105,7 +105,7 @@ export function HomeScrollStory() {
                 Whatsapp
               </span>
               <span className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider transition-colors group-hover:bg-white group-hover:text-navy" style={{ background: '#8FEA64', color: '#050607' }}>
-                Message us ↗
+                Message us now ↗
               </span>
             </a>
             <div className="contact-final-link">
