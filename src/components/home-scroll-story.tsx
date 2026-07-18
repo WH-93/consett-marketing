@@ -49,7 +49,7 @@ export function HomeScrollStory() {
 
       {/* 02 — Recent work */}
       <section id="work" className="home-panel home-panel-wide">
-        <Reveal className="band-black" threshold={0.30} rootMargin="-25%">
+        <Reveal className="band-black" threshold={0.15} rootMargin="-12%">
           <BandHead index="02" label={work.eyebrow ?? 'Recent work'} />
           <h2 className="band-title band-title-sm">{work.title}</h2>
           <div className="work-grid">
