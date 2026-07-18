@@ -206,11 +206,11 @@
   /* ── Arrow field + black band system (home & page heroes) ── */
   .home-field {
     background-color: var(--paper);
-    background-image: url('/patterns/green-arrow-tile.svg');
+    background-image: url('/patterns/arrow-field-layered.webp');
     background-repeat: repeat;
-    /* Reduced a further 15% from the 3.78/5.46/5.67rem tile so more arrows tile
-       uniformly across the same background field. */
-    background-size: clamp(3.213rem, 4.641vw, 4.8195rem);
+    /* Layered multi-arrow tile (1254px square, seamless). Rendered large so the
+       depth layers read as a field rather than an obvious repeat. */
+    background-size: clamp(30rem, 55vw, 52rem);
     background-position: 0 0;
   }
 
@@ -362,9 +362,9 @@
   /* Inner page hero on the arrow field */
   .page-hero-field {
     background-color: var(--paper);
-    background-image: url('/patterns/green-arrow-tile.svg');
+    background-image: url('/patterns/arrow-field-layered.webp');
     background-repeat: repeat;
-    background-size: clamp(3.213rem, 4.641vw, 4.8195rem);
+    background-size: clamp(30rem, 55vw, 52rem);
     padding: clamp(2.75rem, 6vw, 5.5rem) clamp(1rem, 5vw, 5rem);
   }
   .page-hero-band {
