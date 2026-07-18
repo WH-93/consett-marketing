@@ -22,18 +22,20 @@ export function Header() {
   const normalizedPathname = normalizePath(pathname);
 
   const handleNav = (href: string, event?: { preventDefault: () => void }) => {
-    if (href.startsWith('/#') && normalizedPathname === '/') {
+    if (href.startsWith('/#')) {
       event?.preventDefault();
       setOpen(false);
       const id = href.slice(2);
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
+        return;
       }
+      router.push(href);
       return;
     }
     setOpen(false);
-    if (!event) router.push(href);
+    router.push(href);
   };
 
   useEffect(() => {
