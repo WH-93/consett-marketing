@@ -4,21 +4,21 @@ import { readFileSync } from 'node:fs';
 
 const css = readFileSync('src/app/globals.css', 'utf8');
 const publicLayout = readFileSync('src/components/public-layout.tsx', 'utf8');
-const arrowField = readFileSync('public/patterns/arrow-field-layered.webp');
+const arrowTile = readFileSync('public/patterns/green-arrow-tile.svg', 'utf8');
 
 describe('home visual style contract', () => {
-  it('ships the layered arrow field as an optimised raster tile', () => {
-    // WebP magic bytes: RIFF....WEBP
-    assert.equal(arrowField.subarray(0, 4).toString('ascii'), 'RIFF', 'tile should be a WebP (RIFF container)');
-    assert.equal(arrowField.subarray(8, 12).toString('ascii'), 'WEBP', 'tile should be a WebP image');
-    assert.ok(arrowField.length < 120_000, 'tile must stay lightweight (<120KB) as a repeating background');
+  it('uses a single clean arrow shape for the repeated background tile', () => {
+    assert.ok(arrowTile.includes('width=\"220\" height=\"220\"'), 'tile should be square and predictable');
+    assert.equal((arrowTile.match(/<path\b/g) ?? []).length, 1, 'tile should contain one arrow path only');
+    assert.ok(arrowTile.includes('stroke-linecap=\"round\"'), 'arrow ends should match the rounded reference mark');
+    assert.doesNotMatch(arrowTile, /<use\b|<g\b|opacity=|scale\(/, 'tile must not use offset duplicates, opacity layers, or scaled arrows');
   });
 
   it('keeps the whole home page on one continuous repeated pattern background', () => {
     assert.ok(publicLayout.includes('home-field'), 'home layout should apply the shared arrow-field class');
     assert.match(
       css,
-      /\.home-field\s*{[\s\S]*?background-image:\s*url\('\/patterns\/arrow-field-layered\.webp'\)/,
+      /\.home-field\s*{[\s\S]*?background-image:\s*url\('\/patterns\/green-arrow-tile\.svg'\)/,
       'home page shell should own the arrow background',
     );
     assert.doesNotMatch(
