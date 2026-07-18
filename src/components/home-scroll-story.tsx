@@ -27,7 +27,7 @@ export function HomeScrollStory() {
     <div>
       {/* 01 — What we do */}
       <section id="services" className="home-panel home-panel-wide">
-        <Reveal className="band-black" threshold={0.20} rootMargin="-15%">
+        <Reveal className="band-black" threshold={0.25} rootMargin="-20%">
           <BandHead index="01" label="What we do" />
           <h2 className="band-title">How we can <span className="band-accent">help.</span></h2>
           <div className="service-index mt-10">
@@ -49,7 +49,7 @@ export function HomeScrollStory() {
 
       {/* 02 — Recent work */}
       <section id="work" className="home-panel home-panel-wide">
-        <Reveal className="band-black" delayMs={400}>
+        <Reveal className="band-black" threshold={0.30} rootMargin="-25%">
           <BandHead index="02" label={work.eyebrow ?? 'Recent work'} />
           <h2 className="band-title band-title-sm">{work.title}</h2>
           <div className="work-grid">
@@ -76,7 +76,7 @@ export function HomeScrollStory() {
 
       {/* 03 — Contact */}
       <section id="contact" className="home-panel home-panel-wide contact-final">
-        <Reveal className="band-black" delayMs={800}>
+        <Reveal className="band-black" threshold={0.35} rootMargin="-30%">
           <BandHead index="03" label={contact.eyebrow ?? 'Start a conversation'} />
           <h2 className="band-title">{contact.title}</h2>
           <div className="mt-7 max-w-2xl space-y-4">
