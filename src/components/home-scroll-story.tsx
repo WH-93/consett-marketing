@@ -104,7 +104,7 @@ export function HomeScrollStory() {
                 <BcIcon name="whatsapp" size={14} className="contact-final-link-icon" />
                 Whatsapp
               </span>
-              <span className="btn-whatsapp inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider" style={{ background: '#8FEA64', color: '#050607' }}>
+              <span className="btn-whatsapp inline-flex items-center gap-2 rounded-full px-6 py-3 sm:px-5 sm:py-2 text-sm font-bold uppercase tracking-wider" style={{ background: '#8FEA64', color: '#050607' }}>
                 Message us now ↗
               </span>
             </a>
