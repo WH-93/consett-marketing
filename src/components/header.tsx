@@ -63,7 +63,7 @@ export function Header() {
                 </Link>
               );
             })}
-            <a href="/#contact" className="btn-gold !py-3 !px-6" onClick={(e) => handleNav('/#contact', e)}>
+            <a href="/#contact" className="btn-gold !py-3 !px-6">
               Contact
             </a>
           </nav>

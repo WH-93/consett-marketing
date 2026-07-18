@@ -21,7 +21,7 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; overflow-x: hidden; background: var(--paper); }
+  html { scroll-behavior: smooth; overflow-x: hidden; background: var(--paper); scroll-padding-top: 5rem; }
 
   body {
     @apply font-sans text-navy antialiased;
