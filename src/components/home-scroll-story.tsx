@@ -76,7 +76,7 @@ export function HomeScrollStory() {
 
       {/* 03 — Contact */}
       <section id="contact" className="home-panel home-panel-wide contact-final">
-        <Reveal className="band-black" threshold={0.35} rootMargin="-30%">
+        <Reveal className="band-black" threshold={0.15} rootMargin="-10%">
           <BandHead index="03" label={contact.eyebrow ?? 'Start a conversation'} />
           <h2 className="band-title">{contact.title}</h2>
           <div className="mt-7 max-w-2xl space-y-4">
