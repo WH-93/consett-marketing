@@ -49,7 +49,7 @@ export function HomeScrollStory() {
 
       {/* 02 — Recent work */}
       <section id="work" className="home-panel home-panel-wide">
-        <Reveal className="band-black">
+        <Reveal className="band-black" delayMs={400}>
           <BandHead index="02" label={work.eyebrow ?? 'Recent work'} />
           <h2 className="band-title band-title-sm">{work.title}</h2>
           <div className="work-grid">
@@ -76,7 +76,7 @@ export function HomeScrollStory() {
 
       {/* 03 — Contact */}
       <section id="contact" className="home-panel home-panel-wide contact-final">
-        <Reveal className="band-black">
+        <Reveal className="band-black" delayMs={800}>
           <BandHead index="03" label={contact.eyebrow ?? 'Start a conversation'} />
           <h2 className="band-title">{contact.title}</h2>
           <div className="mt-7 max-w-2xl space-y-4">

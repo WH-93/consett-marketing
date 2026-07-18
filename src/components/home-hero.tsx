@@ -49,7 +49,7 @@ export function HomeHero() {
 
       <div className="home-hero-panel">
         <div className="band-black home-hero-band">
-          <p className="home-hero-kicker eyebrow">Consett, County Durham · Working across the North East</p>
+          <p className="home-hero-kicker eyebrow">Consett, County Durham<br />Working across the North East</p>
           <div id="landing-hero-title">
             <HeroHeadline headline={hero.headline} />
           </div>
