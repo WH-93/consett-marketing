@@ -95,9 +95,12 @@ export function Header() {
               );
             })}
             <div className="px-5 pt-4">
-              <a href="/#contact" className="btn-gold w-full" onClick={(e) => handleNav('/#contact', e)}>
+              <button
+                className="btn-gold w-full"
+                onClick={() => { setOpen(false); window.location.hash = 'contact'; }}
+              >
                 Contact
-              </a>
+              </button>
             </div>
           </div>
         )}
