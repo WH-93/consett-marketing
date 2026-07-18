@@ -288,10 +288,10 @@
     display: block;
     padding-bottom: 0.1em;
     margin-bottom: -0.06em;
-    animation: heroTextReveal 960ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: heroTextReveal 1152ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-  .ed-hero-title-line:nth-child(2) { animation-delay: 132ms; }
-  .ed-hero-title-line:nth-child(3) { animation-delay: 264ms; }
+  .ed-hero-title-line:nth-child(2) { animation-delay: 158ms; }
+  .ed-hero-title-line:nth-child(3) { animation-delay: 317ms; }
   .ed-hero-title-accent { color: var(--green); }
   .home-hero-kicker { @apply eyebrow flex items-center gap-3; margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
   .home-hero-sub { margin-top: clamp(1.4rem, 2.4vw, 2.1rem); }
