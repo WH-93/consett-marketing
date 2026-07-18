@@ -39,8 +39,8 @@ export const siteConfig = {
 
   contact: {
     email: 'hello@consettmarketing.co.uk',
-    phone: '07522 996561',
-    phoneCompact: '07522996561',
+    phone: '07342 620366',
+    phoneCompact: '07342620366',
     location: 'Consett, County Durham',
   },
 
