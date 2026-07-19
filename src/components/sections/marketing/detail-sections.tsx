@@ -171,33 +171,50 @@ export function AreasCardsSection({ content }: SectionProps<AreasCardsContent>) 
           <p className="eyebrow eyebrow-index" data-index="↗">{content.eyebrow}</p>
         </div>
         <h2 className="section-title max-w-3xl">{content.title}</h2>
-        <div className={content.groups.some((group) => group.image) ? 'work-grid mt-10 sm:mt-12' : 'case-study-grid'}>
-          {content.groups.map((group) =>
-            group.image ? (
+        <div
+          className={
+            content.groups.some((group) => group.image || group.cardColor || group.href)
+              ? 'work-grid mt-10 sm:mt-12'
+              : 'case-study-grid'
+          }
+        >
+          {content.groups.map((group) => {
+            const isCard = Boolean(group.image || group.cardColor || group.href);
+            if (!isCard) {
+              return (
+                <div key={group.title} className="case-study-card">
+                  <p className="case-study-tag">{content.eyebrow}</p>
+                  <h3>{group.title}</h3>
+                  <p>{group.desc}</p>
+                  <span aria-hidden="true" className="case-study-arrow">↗</span>
+                </div>
+              );
+            }
+
+            const external = Boolean(group.href?.startsWith('http'));
+            return (
               <a
                 key={group.title}
                 href={group.href ?? '/#work'}
-                target={group.href ? '_blank' : undefined}
-                rel={group.href ? 'noopener noreferrer' : undefined}
+                target={external ? '_blank' : undefined}
+                rel={external ? 'noopener noreferrer' : undefined}
                 className="work-card"
+                style={!group.image && group.cardColor ? { background: group.cardColor } : undefined}
               >
-                <img src={group.image} alt="" />
-                <span className="work-card-arrow" aria-hidden="true">↗</span>
+                {group.image ? (
+                  <img src={group.image} alt="" />
+                ) : (
+                  <span className="work-card-placeholder" aria-hidden="true" />
+                )}
+                <span className="work-card-arrow" aria-hidden="true">{external ? '↗' : '→'}</span>
                 <div className="work-card-body">
                   {group.tag && <p className="work-card-tag">{group.tag}</p>}
                   <h3 className="work-card-title">{group.title}</h3>
                   <p className="work-card-desc">{group.desc}</p>
                 </div>
               </a>
-            ) : (
-              <div key={group.title} className="case-study-card">
-                <p className="case-study-tag">{content.eyebrow}</p>
-                <h3>{group.title}</h3>
-                <p>{group.desc}</p>
-                <span aria-hidden="true" className="case-study-arrow">↗</span>
-              </div>
-            ),
-          )}
+            );
+          })}
         </div>
         {content.cta && <ButtonLink cta={content.cta} className="mt-12" />}
       </div>

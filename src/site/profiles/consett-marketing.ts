@@ -1,5 +1,6 @@
 import { siteConfig } from '@/config/site';
 import type { SiteProfile } from '@/site/types';
+import { workExamples } from '@/site/projects';
 
 const contacts = [
   { icon: 'mail' as const, label: 'Email', value: siteConfig.contact.email, href: `mailto:${siteConfig.contact.email}` },
@@ -25,23 +26,6 @@ const process = [
   { icon: 'target' as const, title: '2. Plan', desc: 'A proposal with scope, timeline and price. No surprises.' },
   { icon: 'star' as const, title: '3. Build', desc: 'Design, build, write. You see progress. You give feedback.' },
   { icon: 'shield' as const, title: '4. Deliver', desc: 'Live, tested, working. Then we show you how to measure it.' },
-];
-
-const workExamples = [
-  {
-    title: 'Ross Webster Tree Services',
-    desc: 'Brand, website and local SEO for a County Durham tree surgeon. Full identity from mark to messaging.',
-    href: 'https://rosswebstertreeservices.co.uk',
-    image: '/reference/ross-webster-case-study.png',
-    tag: 'Brand · Web · Local SEO',
-  },
-  {
-    title: 'BC Financial Search',
-    desc: 'Specialist recruitment brand. Positioning, website and content for a founder-led search firm.',
-    href: 'https://bcfinancialsearch.co.uk',
-    image: '/reference/bc-financial-case-study.webp',
-    tag: 'Positioning · Web · Content',
-  },
 ];
 
 export const consettMarketingProfile = {

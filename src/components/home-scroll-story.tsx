@@ -26,8 +26,6 @@ export function HomeScrollStory() {
 
   return (
     <div>
-      <ScrollingTicker />
-
       {/* 01 — What we do */}
       <section id="services" className="home-panel home-panel-wide">
         <Reveal className="band-black" threshold={0.12} rootMargin="-8%">
@@ -56,26 +54,36 @@ export function HomeScrollStory() {
           <BandHead index="02" label={work.eyebrow ?? 'Recent work'} />
           <h2 className="band-title band-title-sm">{work.title}</h2>
           <div className="work-grid">
-            {work.groups.map((item) => (
-              <a
-                key={item.title}
-                href={item.href ?? '/#work'}
-                target={item.href ? '_blank' : undefined}
-                rel={item.href ? 'noopener noreferrer' : undefined}
-                className="work-card"
-              >
-                {item.image && <img src={item.image} alt="" />}
-                <span className="work-card-arrow" aria-hidden="true">↗</span>
-                <div className="work-card-body">
-                  {item.tag && <p className="work-card-tag">{item.tag}</p>}
-                  <h3 className="work-card-title">{item.title}</h3>
-                  <p className="work-card-desc">{item.desc}</p>
-                </div>
-              </a>
-            ))}
+            {work.groups.map((item) => {
+              const external = Boolean(item.href?.startsWith('http'));
+              return (
+                <a
+                  key={item.title}
+                  href={item.href ?? '/#work'}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                  className="work-card"
+                  style={!item.image && item.cardColor ? { background: item.cardColor } : undefined}
+                >
+                  {item.image ? (
+                    <img src={item.image} alt="" />
+                  ) : (
+                    <span className="work-card-placeholder" aria-hidden="true" />
+                  )}
+                  <span className="work-card-arrow" aria-hidden="true">{external ? '↗' : '→'}</span>
+                  <div className="work-card-body">
+                    {item.tag && <p className="work-card-tag">{item.tag}</p>}
+                    <h3 className="work-card-title">{item.title}</h3>
+                    <p className="work-card-desc">{item.desc}</p>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </Reveal>
       </section>
+
+      <ScrollingTicker />
 
       {/* 03 — Contact */}
       <section id="contact" className="home-panel home-panel-wide contact-final">

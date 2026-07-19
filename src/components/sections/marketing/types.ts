@@ -185,6 +185,8 @@ export interface AreaCardGroup {
   title: string;
   desc: string;
   image?: string;
+  /** Solid fill when image is deferred (project cards). */
+  cardColor?: string;
   tag?: string;
   href?: string;
 }

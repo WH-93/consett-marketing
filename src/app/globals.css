@@ -337,12 +337,13 @@
     font-size: 0.9rem;
   }
 
-  /* Trusted-by logo banner — under the hero */
+  /* Trusted-by brand marquee — full-width ticker under the hero */
   .trusted-by {
     background: #050607;
     color: #fff;
-    padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 5vw, 5rem);
+    padding: clamp(1.8rem, 3.5vw, 3rem) 0 clamp(2rem, 4vw, 3.5rem);
     text-align: center;
+    overflow: hidden;
   }
   .trusted-by-heading {
     @apply uppercase;
@@ -351,18 +352,26 @@
     color: rgba(255, 255, 255, 0.44);
     margin-bottom: clamp(1.2rem, 2.5vw, 2rem);
   }
-  .trusted-by-logos {
+  .trusted-by-track {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(0.8rem, 2vw, 2rem);
+    width: max-content;
+    animation: tickerScroll 60s linear infinite;
   }
-  .trusted-by-placeholder {
-    width: clamp(5rem, 12vw, 8.5rem);
-    height: clamp(2.2rem, 5vw, 3.5rem);
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 4px;
+  .trusted-by-group { display: flex; align-items: center; flex-shrink: 0; }
+  .trusted-by-group span {
+    @apply font-bold;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    padding-inline: 1.8rem;
+  }
+  .trusted-by-group span::after {
+    content: '·';
+    color: var(--green);
+    letter-spacing: 0;
+    margin-left: 3.6rem;
+    font-size: 1.2rem;
   }
 
   /* Home scroll panels */
@@ -516,6 +525,449 @@
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
   }
   .work-card:hover .work-card-arrow { background: var(--orange); border-color: var(--orange); transform: translate(2px, -2px); }
+  .work-card-placeholder {
+    @apply absolute inset-0;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.18));
+  }
+
+  /* ── Case study pages (ZavaBuild-influenced: carousel-first, badge chips, live link) ──
+     Cinematic dark hero, image carousel, sparse meta, narrative blocks, next-project nav.
+     Tokens stay Consett: paper / ink / orange / green. */
+  .cs-page { background: var(--paper); }
+
+  /* Hero */
+  .cs-hero {
+    background: #050607;
+    color: #fff;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .cs-hero-top {
+    @apply flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    padding-bottom: 1.1rem;
+    margin-bottom: clamp(1.75rem, 3.5vw, 3rem);
+    width: min(100%, 78rem);
+    margin-inline: auto;
+  }
+  .cs-hero-badges { @apply flex flex-wrap gap-2; }
+  .cs-badge {
+    @apply inline-block uppercase font-bold px-3 py-1 rounded-full;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .cs-badge-live {
+    border-color: rgba(143, 234, 100, 0.45);
+    color: #8FEA64;
+    background: rgba(143, 234, 100, 0.1);
+  }
+  .cs-badge-year { color: rgba(255, 255, 255, 0.5); }
+
+  .cs-hero-title {
+    @apply font-heading font-extrabold;
+    color: #fff;
+    font-size: clamp(2.6rem, 7vw, 6.2rem);
+    line-height: 0.94;
+    letter-spacing: -0.05em;
+    max-width: 18ch;
+    width: min(100%, 78rem);
+    margin-inline: auto;
+  }
+  .cs-hero-title-line { display: block; }
+  .cs-hero-client {
+    @apply mt-5 uppercase font-bold flex flex-wrap items-center gap-x-6 gap-y-3;
+    color: #8FEA64;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    width: min(100%, 78rem);
+    margin-inline: auto;
+  }
+  .cs-live-link {
+    @apply inline-flex items-center gap-1.5;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .cs-live-link:hover { color: #fff; }
+
+  /* Carousel */
+  .cs-carousel {
+    position: relative;
+    overflow: hidden;
+    background: #050607;
+    padding-bottom: clamp(2rem, 3.5vw, 3rem);
+  }
+  .cs-carousel-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cs-carousel-slide {
+    min-width: 100%;
+    padding: 0 clamp(1.25rem, 5vw, 5rem);
+  }
+  .cs-carousel-slide .cs-media-slot {
+    width: min(100%, 78rem);
+    margin-inline: auto;
+    border-radius: 14px;
+    aspect-ratio: 16 / 9;
+    min-height: clamp(16rem, 42vw, 34rem);
+  }
+
+  .cs-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .cs-carousel-btn:hover { background: rgba(0, 0, 0, 0.8); border-color: rgba(255, 255, 255, 0.5); }
+  .cs-carousel-btn:disabled { opacity: 0.3; cursor: default; }
+  .cs-carousel-prev { left: clamp(0.75rem, 2vw, 1.5rem); }
+  .cs-carousel-next { right: clamp(0.75rem, 2vw, 1.5rem); }
+
+  .cs-carousel-dots {
+    @apply flex justify-center gap-2 mt-4;
+  }
+  .cs-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    padding: 0;
+  }
+  .cs-carousel-dot.active { background: #8FEA64; border-color: #8FEA64; }
+
+  /* Media slots */
+  .cs-media-slot {
+    @apply relative overflow-hidden rounded-[16px] flex items-end;
+    border: 1px solid rgba(0, 19, 38, 0.08);
+    width: 100%;
+  }
+  .cs-media-label {
+    @apply uppercase font-bold;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+    padding: 1.1rem 1.25rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent);
+    width: 100%;
+  }
+
+  /* Meta strip */
+  .cs-meta {
+    background: #050607;
+    color: #fff;
+    padding: clamp(1.75rem, 3.5vw, 2.75rem) clamp(1.25rem, 5vw, 5rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .cs-meta-grid {
+    @apply grid gap-8 sm:grid-cols-2 lg:grid-cols-4;
+    width: min(100%, 78rem);
+    margin-inline: auto;
+  }
+  .cs-meta-label {
+    @apply uppercase font-bold;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.55rem;
+  }
+  .cs-meta-value {
+    @apply font-heading font-bold;
+    color: #fff;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+  }
+
+  /* Narrative body */
+  .cs-body {
+    width: min(100%, 78rem);
+    margin-inline: auto;
+    padding: clamp(3.5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  }
+  .cs-block + .cs-block { margin-top: clamp(4rem, 9vw, 7.5rem); }
+  .cs-block-copy { max-width: 40rem; }
+  .cs-block-title {
+    @apply mt-5 font-heading font-extrabold text-navy normal-case;
+    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+  .cs-block-body { @apply mt-6 space-y-4; }
+  .cs-block-body .body-copy {
+    font-size: clamp(1.02rem, 1.35vw, 1.15rem);
+    line-height: 1.75;
+    max-width: 38rem;
+  }
+
+  /* Results */
+  .cs-results {
+    margin-top: clamp(4rem, 9vw, 7.5rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--hairline);
+  }
+  .cs-results-grid {
+    @apply grid gap-8 sm:grid-cols-3;
+  }
+  .cs-result .cs-meta-label { color: rgba(0, 19, 38, 0.4); }
+  .cs-result-value {
+    @apply font-heading font-extrabold text-navy;
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+
+  /* Footer band */
+  .cs-footer-band {
+    background: #050607;
+    color: #fff;
+    padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 5vw, 5rem);
+  }
+  .cs-footer-inner {
+    width: min(100%, 78rem);
+    margin-inline: auto;
+    @apply grid gap-14 lg:grid-cols-2 lg:gap-20;
+  }
+  .cs-next {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    transition: border-color 0.3s ease;
+  }
+  .cs-next:hover { border-color: #8FEA64; }
+  .cs-next-title {
+    @apply mt-5 font-heading font-extrabold;
+    color: #fff;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    transition: color 0.3s ease;
+  }
+  .cs-next:hover .cs-next-title { color: #8FEA64; }
+  .cs-next-tag {
+    @apply mt-4 uppercase font-bold;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+  .cs-cta .eyebrow { color: #8FEA64; }
+  .cs-cta-title {
+    @apply mt-5 font-heading font-extrabold;
+    color: #fff;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    max-width: 16ch;
+  }
+  .cs-footer-band .btn-gold { background: var(--green); color: #fff; }
+  .cs-footer-band .btn-gold:hover { background: #fff; color: #050607; }
+
+  @media (max-width: 639px) {
+    .cs-hero { padding-inline: 0; }
+    .cs-hero-top { padding-inline: 1.25rem; }
+    .cs-hero-title { padding-inline: 1.25rem; }
+    .cs-hero-client { padding-inline: 1.25rem; }
+    .cs-meta { padding-inline: 1.25rem; }
+    .cs-carousel-slide { padding-inline: 0; }
+    .cs-carousel-slide .cs-media-slot { border-radius: 0; }
+  }
+
+  /* ── Work gallery page (ZavaBuild-influenced) ── */
+  .wk-page { background: var(--paper); }
+
+  .wk-hero {
+    background: #050607;
+    color: #fff;
+    padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 5vw, 5rem) clamp(2.5rem, 5vw, 4rem);
+  }
+  .wk-hero-inner {
+    width: min(100%, 78rem);
+    margin-inline: auto;
+  }
+  .wk-hero-title {
+    @apply mt-5 font-heading font-extrabold;
+    color: #fff;
+    font-size: clamp(2.6rem, 7vw, 6.2rem);
+    line-height: 0.94;
+    letter-spacing: -0.05em;
+  }
+  .wk-hero-body {
+    @apply mt-6;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.7;
+    max-width: 36rem;
+  }
+
+  .wk-gallery {
+    width: min(100%, 78rem);
+    margin-inline: auto;
+    padding: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 5vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  /* Two-column project card */
+  .wk-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: #050607;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .wk-card { grid-template-columns: 1.1fr 1fr; }
+  }
+
+  .wk-card-media {
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: #0a0c0e;
+  }
+  @media (min-width: 768px) {
+    .wk-card-media { aspect-ratio: auto; min-height: 100%; }
+  }
+  .wk-media-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    height: 100%;
+    padding: 3px;
+  }
+  .wk-media-slot {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: end;
+    min-height: 0;
+  }
+  .wk-media-hero { grid-row: span 2; }
+  .wk-media-wide { aspect-ratio: auto; }
+  .wk-media-square { aspect-ratio: 1 / 1; }
+  .wk-media-portrait { aspect-ratio: 3 / 4; }
+  .wk-media-label {
+    @apply uppercase font-bold;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.56rem;
+    letter-spacing: 0.14em;
+    padding: 0.6rem 0.75rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    width: 100%;
+  }
+
+  /* Card body */
+  .wk-card-body {
+    @apply flex flex-col justify-center p-7 sm:p-9 lg:p-11;
+  }
+  .wk-card-badges {
+    @apply flex flex-wrap gap-2 mb-4;
+  }
+  .wk-badge {
+    @apply inline-block uppercase font-bold px-3 py-1 rounded-full;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .wk-badge-live {
+    border-color: rgba(143, 234, 100, 0.45);
+    color: #8FEA64;
+    background: rgba(143, 234, 100, 0.1);
+  }
+  .wk-badge-year { color: rgba(255, 255, 255, 0.5); }
+
+  .wk-card-title-link { @apply no-underline; }
+  .wk-card-title {
+    @apply font-heading font-extrabold;
+    color: #fff;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    transition: color 0.3s ease;
+  }
+  .wk-card-title-link:hover .wk-card-title { color: #8FEA64; }
+  .wk-card-tag {
+    @apply mt-2.5 uppercase font-bold;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+  }
+  .wk-card-desc {
+    @apply mt-4;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 30rem;
+  }
+  .wk-card-actions {
+    @apply mt-6 flex flex-wrap items-center gap-4;
+  }
+  .wk-card-body .btn-gold {
+    background: var(--green);
+    color: #fff;
+    font-size: 0.82rem;
+    padding: 0.7rem 1.4rem;
+  }
+  .wk-card-body .btn-gold:hover { background: #fff; color: #050607; }
+  .wk-live-link {
+    @apply inline-flex items-center gap-1.5 uppercase font-bold;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .wk-live-link:hover { color: #fff; }
+
+  /* CTA footer */
+  .wk-cta {
+    background: #050607;
+    color: #fff;
+    padding: clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 5vw, 5rem);
+  }
+  .wk-cta-inner {
+    width: min(100%, 78rem);
+    margin-inline: auto;
+  }
+  .wk-cta .eyebrow { color: #8FEA64; }
+  .wk-cta-title {
+    @apply mt-5 font-heading font-extrabold;
+    color: #fff;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    max-width: 18ch;
+  }
+  .wk-cta .btn-gold { background: var(--green); color: #fff; }
+  .wk-cta .btn-gold:hover { background: #fff; color: #050607; }
 
   /* ── Quote ── */
   .quote-mark { color: var(--green); font-size: 1.5rem; }
@@ -799,6 +1251,7 @@
   }
   .animate-fade-in { animation: none; opacity: 1; transform: none; }
   .ticker-track { animation: none; }
+  .trusted-by-track { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .js .reveal-in .service-index-row { animation: none; opacity: 1; transform: none; filter: none; }
   .work-card img, .work-card-arrow, .case-study-arrow { transition: none; }
