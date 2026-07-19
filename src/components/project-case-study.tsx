@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import type { Project, ProjectMediaSlot } from '@/site/projects';
 import { getProject } from '@/site/projects';
@@ -23,57 +22,30 @@ function MediaSlot({ slot, className = '' }: { slot: ProjectMediaSlot; className
   );
 }
 
+/** Continuous smooth-scrolling image strip — like the brand ticker, always in motion. */
 function MediaCarousel({ hero, media }: { hero: ProjectMediaSlot; media: ProjectMediaSlot[] }) {
   const allSlots = [hero, ...media];
-  const [scroll, setScroll] = useState(0);
-  const maxScroll = allSlots.length - 1;
-
-  const prev = useCallback(() => setScroll((s) => Math.max(0, s - 1)), []);
-  const next = useCallback(() => setScroll((s) => Math.min(maxScroll, s + 1)), [maxScroll]);
+  const slideCount = allSlots.length;
+  const durationPerSlide = 10; // seconds per image
+  const totalDuration = slideCount * durationPerSlide;
 
   return (
-    <div className="cs-carousel" role="region" aria-label="Project screenshots" aria-roledescription="carousel">
+    <div className="cs-carousel" role="region" aria-label="Project screenshots">
       <div
         className="cs-carousel-track"
-        style={{ transform: `translateX(-${scroll * 100}%)` }}
+        style={{ animationDuration: `${totalDuration}s` }}
       >
-        {allSlots.map((slot) => (
-          <div key={slot.id} className="cs-carousel-slide">
-            <MediaSlot slot={slot} />
+        {/* Render twice for seamless looping */}
+        {[0, 1].map((dup) => (
+          <div key={dup} className="cs-carousel-group">
+            {allSlots.map((slot) => (
+              <div key={slot.id} className="cs-carousel-slide">
+                <MediaSlot slot={slot} />
+              </div>
+            ))}
           </div>
         ))}
       </div>
-
-      {allSlots.length > 1 && (
-        <>
-          <button
-            className="cs-carousel-btn cs-carousel-prev"
-            onClick={prev}
-            disabled={scroll === 0}
-            aria-label="Previous screenshot"
-          >
-            ←
-          </button>
-          <button
-            className="cs-carousel-btn cs-carousel-next"
-            onClick={next}
-            disabled={scroll === maxScroll}
-            aria-label="Next screenshot"
-          >
-            →
-          </button>
-          <div className="cs-carousel-dots" aria-hidden="true">
-            {allSlots.map((_, i) => (
-              <button
-                key={i}
-                className={`cs-carousel-dot${i === scroll ? ' active' : ''}`}
-                onClick={() => setScroll(i)}
-                aria-label={`Go to screenshot ${i + 1}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
     </div>
   );
 }
@@ -184,7 +156,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
           {next && (
             <Link href={`/work/${next.slug}`} className="cs-next">
               <p className="eyebrow eyebrow-index eyebrow-index-accent" data-index="→">
-                Next project
+                Next case study
               </p>
               <h2 className="cs-next-title">{next.client}</h2>
               <p className="cs-next-tag">{next.tag}</p>

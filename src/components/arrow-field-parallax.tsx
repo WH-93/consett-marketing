@@ -21,6 +21,7 @@ export default function ArrowFieldParallax({ fieldRef, enabled = true }: Props) 
     if (!enabled) return;
     const el = fieldRef.current;
     if (!el) return;
+    rafRef.current = 0; // reset guard for React Strict Mode double-mount in dev
 
     const onScroll = () => {
       if (rafRef.current) return;

@@ -341,7 +341,7 @@
   .trusted-by {
     background: #050607;
     color: #fff;
-    padding: clamp(1.8rem, 3.5vw, 3rem) 0 clamp(2rem, 4vw, 3.5rem);
+    padding: clamp(1.2rem, 2.5vw, 2rem) 0 clamp(1.4rem, 3vw, 2rem);
     text-align: center;
     overflow: hidden;
   }
@@ -350,7 +350,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.28em;
     color: rgba(255, 255, 255, 0.44);
-    margin-bottom: clamp(1.2rem, 2.5vw, 2rem);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.3rem);
   }
   .trusted-by-track {
     display: flex;
@@ -539,7 +539,7 @@
   .cs-hero {
     background: #050607;
     color: #fff;
-    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(1.8rem, 4.2vw, 3.6rem) clamp(1.25rem, 5vw, 5rem) clamp(1.1rem, 2vw, 1.7rem);
   }
   .cs-hero-top {
     @apply flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3;
@@ -594,7 +594,7 @@
   }
   .cs-live-link:hover { color: #fff; }
 
-  /* Carousel */
+  /* Carousel — continuous smooth scroll like the brand ticker */
   .cs-carousel {
     position: relative;
     overflow: hidden;
@@ -603,58 +603,28 @@
   }
   .cs-carousel-track {
     display: flex;
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    width: max-content;
+    animation: carouselScroll 50s linear infinite;
   }
+  .cs-carousel-track:hover { animation-play-state: paused; }
+  .cs-carousel-group { display: flex; flex-shrink: 0; }
   .cs-carousel-slide {
-    min-width: 100%;
+    flex-shrink: 0;
+    width: 100vw;
+    max-width: 78rem;
     padding: 0 clamp(1.25rem, 5vw, 5rem);
   }
   .cs-carousel-slide .cs-media-slot {
-    width: min(100%, 78rem);
-    margin-inline: auto;
+    width: 100%;
     border-radius: 14px;
     aspect-ratio: 16 / 9;
-    min-height: clamp(16rem, 42vw, 34rem);
+    min-height: clamp(12rem, 31vw, 25rem);
   }
 
-  .cs-carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: rgba(0, 0, 0, 0.55);
-    color: #fff;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    backdrop-filter: blur(6px);
-    transition: background 0.3s ease, border-color 0.3s ease;
+  @keyframes carouselScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
-  .cs-carousel-btn:hover { background: rgba(0, 0, 0, 0.8); border-color: rgba(255, 255, 255, 0.5); }
-  .cs-carousel-btn:disabled { opacity: 0.3; cursor: default; }
-  .cs-carousel-prev { left: clamp(0.75rem, 2vw, 1.5rem); }
-  .cs-carousel-next { right: clamp(0.75rem, 2vw, 1.5rem); }
-
-  .cs-carousel-dots {
-    @apply flex justify-center gap-2 mt-4;
-  }
-  .cs-carousel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.3s ease, border-color 0.3s ease;
-    padding: 0;
-  }
-  .cs-carousel-dot.active { background: #8FEA64; border-color: #8FEA64; }
 
   /* Media slots */
   .cs-media-slot {
@@ -741,7 +711,7 @@
   .cs-footer-band {
     background: #050607;
     color: #fff;
-    padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 5vw, 5rem);
+    padding: clamp(2.25rem, 5vw, 4rem) clamp(1.25rem, 5vw, 5rem);
   }
   .cs-footer-inner {
     width: min(100%, 78rem);
@@ -773,6 +743,7 @@
     letter-spacing: 0.18em;
   }
   .cs-cta .eyebrow { color: #8FEA64; }
+  .cs-next .eyebrow { color: #8FEA64; }
   .cs-cta-title {
     @apply mt-5 font-heading font-extrabold;
     color: #fff;
@@ -1252,6 +1223,7 @@
   .animate-fade-in { animation: none; opacity: 1; transform: none; }
   .ticker-track { animation: none; }
   .trusted-by-track { animation: none; }
+  .cs-carousel-track { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .js .reveal-in .service-index-row { animation: none; opacity: 1; transform: none; filter: none; }
   .work-card img, .work-card-arrow, .case-study-arrow { transition: none; }
