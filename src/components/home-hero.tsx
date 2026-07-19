@@ -3,17 +3,6 @@ import { ButtonLink } from '@/components/sections/marketing/shared';
 import { activeProfile } from '@/site/active-profile';
 import type { SplitHeroContent } from '@/components/sections/marketing-sections';
 
-const tickerItems = [
-  'Web Design',
-  'SEO',
-  'Brand Strategy',
-  'Content & Copy',
-  'Local Search',
-  'Landing Pages',
-  'Positioning',
-  'Analytics',
-];
-
 function HeroHeadline({ headline }: Pick<SplitHeroContent, 'headline'>) {
   return (
     <h1
@@ -62,15 +51,6 @@ export function HomeHero() {
         </div>
       </div>
 
-      <div className="ticker" aria-hidden="true">
-        <div className="ticker-track">
-          {[0, 1].map((group) => (
-            <div key={group} className="ticker-group">
-              {tickerItems.map((item) => <span key={item}>{item}</span>)}
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

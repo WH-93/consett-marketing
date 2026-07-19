@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { HomeHero } from '@/components/home-hero';
+import { TrustedBy } from '@/components/trusted-by';
 import { HomeScrollStory } from '@/components/home-scroll-story';
 import { activeProfile } from '@/site/active-profile';
 
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <TrustedBy />
       <HomeScrollStory />
     </>
   );

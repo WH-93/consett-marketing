@@ -1,6 +1,7 @@
 import React from 'react';
 import { Reveal } from '@/components/reveal';
 import { BcIcon } from '@/components/bc-icon';
+import { ScrollingTicker } from '@/components/scrolling-ticker';
 import { activeProfile } from '@/site/active-profile';
 import type {
   AreasCardsContent,
@@ -25,6 +26,8 @@ export function HomeScrollStory() {
 
   return (
     <div>
+      <ScrollingTicker />
+
       {/* 01 — What we do */}
       <section id="services" className="home-panel home-panel-wide">
         <Reveal className="band-black" threshold={0.12} rootMargin="-8%">

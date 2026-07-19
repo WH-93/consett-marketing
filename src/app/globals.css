@@ -337,6 +337,34 @@
     font-size: 0.9rem;
   }
 
+  /* Trusted-by logo banner — under the hero */
+  .trusted-by {
+    background: #050607;
+    color: #fff;
+    padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 5vw, 5rem);
+    text-align: center;
+  }
+  .trusted-by-heading {
+    @apply uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: rgba(255, 255, 255, 0.44);
+    margin-bottom: clamp(1.2rem, 2.5vw, 2rem);
+  }
+  .trusted-by-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.8rem, 2vw, 2rem);
+  }
+  .trusted-by-placeholder {
+    width: clamp(5rem, 12vw, 8.5rem);
+    height: clamp(2.2rem, 5vw, 3.5rem);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+  }
+
   /* Home scroll panels */
   .home-panel {
     display: flex;
