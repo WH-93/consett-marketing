@@ -1,5 +1,6 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import type { Project, ProjectMediaSlot } from '@/site/projects';
 import { getProject } from '@/site/projects';
@@ -9,43 +10,63 @@ function MediaSlot({ slot, className = '' }: { slot: ProjectMediaSlot; className
     ? `linear-gradient(145deg, ${slot.color} 0%, ${slot.colorEnd} 100%)`
     : slot.color;
 
+  const bgStyle: React.CSSProperties = slot.image
+    ? {
+        backgroundImage: `url(${slot.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }
+    : { background: gradient };
+
   return (
     <div
       className={`cs-media-slot ${className}`.trim()}
       data-slot={slot.id}
-      style={{ background: gradient }}
+      style={bgStyle}
       role="img"
       aria-label={slot.label}
     >
-      <span className="cs-media-label">{slot.label}</span>
+      {!slot.image && <span className="cs-media-label">{slot.label}</span>}
     </div>
   );
 }
 
-/** Continuous smooth-scrolling image strip — like the brand ticker, always in motion. */
+/** Ticking gallery — fades between slides every 6s, with prev/next arrows. */
 function MediaCarousel({ hero, media }: { hero: ProjectMediaSlot; media: ProjectMediaSlot[] }) {
   const allSlots = [hero, ...media];
-  const slideCount = allSlots.length;
-  const durationPerSlide = 10; // seconds per image
-  const totalDuration = slideCount * durationPerSlide;
+  const [current, setCurrent] = useState(0);
+
+  // Auto-advance every 6s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % allSlots.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [allSlots.length]);
+
+  const prev = () => setCurrent((c) => (c - 1 + allSlots.length) % allSlots.length);
+  const next = () => setCurrent((c) => (c + 1) % allSlots.length);
 
   return (
     <div className="cs-carousel" role="region" aria-label="Project screenshots">
-      <div
-        className="cs-carousel-track"
-        style={{ animationDuration: `${totalDuration}s` }}
-      >
-        {/* Render twice for seamless looping */}
-        {[0, 1].map((dup) => (
-          <div key={dup} className="cs-carousel-group">
-            {allSlots.map((slot) => (
-              <div key={slot.id} className="cs-carousel-slide">
-                <MediaSlot slot={slot} />
-              </div>
-            ))}
+      <div className="cs-carousel-stage">
+        {allSlots.map((slot, i) => (
+          <div
+            key={slot.id}
+            className={`cs-carousel-slide${i === current ? ' is-active' : ''}`}
+            aria-hidden={i !== current}
+          >
+            <MediaSlot slot={slot} />
           </div>
         ))}
       </div>
+
+      <button className="cs-carousel-arrow cs-carousel-prev" onClick={prev} aria-label="Previous slide">
+        ←
+      </button>
+      <button className="cs-carousel-arrow cs-carousel-next" onClick={next} aria-label="Next slide">
+        →
+      </button>
     </div>
   );
 }
@@ -61,7 +82,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
           <div className="cs-hero-badges">
             <span className="cs-badge cs-badge-sector">{project.sector}</span>
             {project.liveUrl && <span className="cs-badge cs-badge-live">LIVE</span>}
-            <span className="cs-badge cs-badge-year">{project.year}</span>
+            {project.year && <span className="cs-badge cs-badge-year">{project.year}</span>}
           </div>
 
           <p className="eyebrow eyebrow-index eyebrow-index-accent" data-index="↗">
@@ -110,34 +131,78 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
             <p className="cs-meta-label">Location</p>
             <p className="cs-meta-value">{project.location}</p>
           </div>
-          <div>
-            <p className="cs-meta-label">Year</p>
-            <p className="cs-meta-value">{project.year}</p>
-          </div>
+          {project.year && (
+            <div>
+              <p className="cs-meta-label">Year</p>
+              <p className="cs-meta-value">{project.year}</p>
+            </div>
+          )}
         </div>
       </section>
 
       {/* ── Narrative ── */}
       <div className="cs-body">
-        {project.sections.map((section, index) => (
-          <section key={section.eyebrow} className="cs-block">
-            <div className="cs-block-copy">
-              <p className="eyebrow eyebrow-index" data-index={String(index + 1).padStart(2, '0')}>
-                {section.eyebrow}
-              </p>
-              <h2 className="cs-block-title">{section.title}</h2>
-              <div className="cs-block-body">
-                {section.body.map((paragraph) => (
-                  <p key={paragraph} className="body-copy">
-                    {paragraph}
-                  </p>
-                ))}
+        {project.sections.map((section, index) => {
+          // Split body paragraphs into bullet groups and regular paragraphs
+          const rendered: React.ReactNode[] = [];
+          let bulletGroup: string[] = [];
+          let keyIdx = 0;
+
+          const flushBullets = () => {
+            if (bulletGroup.length > 0) {
+              rendered.push(
+                <ul key={`bullets-${keyIdx++}`} className="cs-bullets">
+                  {bulletGroup.map((item) => (
+                    <li key={item}>{item.replace(/^- /, '')}</li>
+                  ))}
+                </ul>
+              );
+              bulletGroup = [];
+            }
+          };
+
+          section.body.forEach((paragraph) => {
+            if (paragraph.startsWith('- ')) {
+              bulletGroup.push(paragraph);
+            } else {
+              flushBullets();
+              rendered.push(
+                <p key={`p-${keyIdx++}`} className="body-copy">
+                  {paragraph}
+                </p>
+              );
+            }
+          });
+          flushBullets();
+
+          return (
+            <section key={section.eyebrow} className="cs-block">
+              <div className="cs-block-copy">
+                <p className="eyebrow eyebrow-index" data-index={String(index + 1).padStart(2, '0')}>
+                  {section.eyebrow}
+                </p>
+                <h2 className="cs-block-title">{section.title}</h2>
+                <div className="cs-block-body">
+                  {rendered}
+                </div>
               </div>
-            </div>
-          </section>
-        ))}
+            </section>
+          );
+        })}
 
         {/* Results strip */}
+        {project.liveUrl && (
+          <section className="cs-link-out">
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold cs-link-out-btn"
+            >
+              Visit website
+            </a>
+          </section>
+        )}
         <section className="cs-results" aria-label="Project snapshot">
           <div className="cs-results-grid">
             {project.results.map((item) => (

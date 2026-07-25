@@ -5,6 +5,8 @@ export type ProjectMediaSlot = {
   color: string;
   /** Optional second color for a soft gradient. */
   colorEnd?: string;
+  /** Optional image URL — takes precedence over color. */
+  image?: string;
   aspect: 'hero' | 'wide' | 'square' | 'portrait' | 'pair';
 };
 
@@ -48,21 +50,21 @@ export const projects: Project[] = [
     summary:
       'Brand, website and local SEO for a County Durham tree surgeon. Full identity from mark to messaging.',
     statement: [
-      'A County Durham tree surgeon with the craft,',
-      'but not the brand to match it.',
+      'A new brand, website & digital presence.',
     ],
     tag: 'Brand · Web · Local SEO',
-    services: ['Brand identity', 'Website design', 'Local SEO', 'Messaging'],
+    services: ['Branding & identity', 'Website', 'SEO', 'Digital Presence'],
     sector: 'Trade services',
     location: 'County Durham',
-    year: '2025',
+    year: '',
     liveUrl: 'https://rosswebstertreeservices.co.uk',
     liveLabel: 'Visit live site',
     cardColor: '#1F3D2B',
     image: '/reference/ross-webster-case-study.png',
     hero: {
       id: 'rw-hero',
-      label: 'RW · Hero image',
+      label: 'RW · Brand board',
+      image: '/work/ross-webster/01-brand.png',
       color: '#1A3324',
       colorEnd: '#0B1610',
       aspect: 'hero',
@@ -70,21 +72,24 @@ export const projects: Project[] = [
     media: [
       {
         id: 'rw-brand',
-        label: 'RW · Brand / mark lockup',
+        label: 'RW · Website hero',
+        image: '/work/ross-webster/02-website.png',
         color: '#243D2C',
         colorEnd: '#15241A',
         aspect: 'wide',
       },
       {
         id: 'rw-site-desktop',
-        label: 'RW · Website desktop',
+        label: 'RW · Colour system',
+        image: '/work/ross-webster/03-colour.png',
         color: '#2C4A35',
         colorEnd: '#1A2E21',
         aspect: 'wide',
       },
       {
         id: 'rw-site-mobile',
-        label: 'RW · Website mobile',
+        label: 'RW · Palette',
+        image: '/work/ross-webster/04-palette.png',
         color: '#33553D',
         colorEnd: '#1E3326',
         aspect: 'portrait',
@@ -100,32 +105,39 @@ export const projects: Project[] = [
     sections: [
       {
         eyebrow: 'The brief',
-        title: 'Look as sharp as the work.',
+        title: 'A strong business with no digital presence.',
         body: [
-          'Ross was winning jobs on reputation and referrals, but the online presence did not match the standard of the work. No clear brand. No site that converted. Almost no local search footprint.',
-          'The job was simple: give a serious trades business a serious brand and a website that turns local searches into booked work.',
+          'Ross had built a solid reputation through word of mouth, but had no defined brand, website, or consistent online presence.',
+          'The brief was to build a stronger and differentiated brand that would help him attract more commercial work, without moving away from the work he is known for.',
         ],
       },
       {
         eyebrow: 'What we built',
-        title: 'Identity, site and search — as one system.',
+        title: 'One brand across web, search & social.',
         body: [
-          'We built a full brand from the ground up: mark, colour, type and a tone of voice that feels practical, local and trustworthy.',
-          'Then a clean, mobile-first website with clear service pages, strong calls to action and the local SEO foundations so nearby customers can actually find him.',
+          'We built the brand from scratch, including a new logo, colour palette, and tone of voice. Brand guidelines were made as part of the work.',
+          'We coded Ross an entirely bespoke website. This gives us total control over its features and enables rapid deployment of changes. Effective SEO is at the heart of the website. Our in-house custom built software tools provide us with rich data insights which are translated into the structure, copy, service pages and positioning from the start.',
+          'Our ongoing data analysis comes to life through our pipeline of content which benefits the reader and target market by adding real value to the information provided. Tree maintenance involves many technical, legal and commercial nuances.',
+          'We then rolled the new brand out across LinkedIn and Facebook company pages. We will continue to manage the content, grow the pages and help build his professional network and brand image.',
         ],
       },
       {
         eyebrow: 'The outcome',
-        title: 'A brand that works as hard as he does.',
+        title: 'A brand with healthy roots, guided by data.',
         body: [
-          'Ross now has a clear identity, a site that explains the offer without fluff, and a path for local search to bring enquiries in — not just referrals.',
+          '- A brand that works for both domestic and commercial audiences',
+          '- External industry websites linking to the new website',
+          '- Domain authority surpassing 95% of similar sites',
+          '- Visibility in local search and branded search',
+          '- 400% increase in social traffic from multiple sources',
+          '- 5x increase in brand site impressions in a two week period',
         ],
       },
     ],
     results: [
       { label: 'Scope', value: 'Brand · Web · SEO' },
-      { label: 'Focus', value: 'Local enquiries' },
-      { label: 'Market', value: 'County Durham' },
+      { label: 'Focus', value: 'SEO, branding, website development' },
+      { label: 'Market', value: 'North Yorkshire & County Durham' },
     ],
     nextSlug: 'bc-financial-search',
   },
