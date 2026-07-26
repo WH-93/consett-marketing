@@ -16,7 +16,8 @@ const trustedBrands = [
 export function TrustedBy() {
   return (
     <section className="trusted-by" aria-label="Companies we have worked with">
-      <p className="trusted-by-heading">We have over 14 years combined experience. Here are some of the companies we helped during our various roles</p>
+      <p className="trusted-by-heading">Over 14 years&rsquo; combined experience</p>
+      <p className="trusted-by-sub">Before launching Consett Marketing, we built our experience across a range of in-house roles. Here are some of the brands and organisations we&rsquo;ve worked with or contributed to projects for:</p>
       <div className="trusted-by-track" aria-hidden="true">
         {[0, 1].map((group) => (
           <div key={group} className="trusted-by-group">

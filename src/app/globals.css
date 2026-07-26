@@ -337,20 +337,27 @@
     font-size: 0.9rem;
   }
 
-  /* Trusted-by brand marquee — full-width ticker under the hero */
+  /* Trusted-by brand marquee — full-width ticker */
   .trusted-by {
     background: #050607;
     color: #fff;
-    padding: clamp(1.2rem, 2.5vw, 2rem) 0 clamp(1.4rem, 3vw, 2rem);
+    padding: clamp(4rem, 8vw, 7rem) 0 clamp(4rem, 8vw, 7rem);
     text-align: center;
     overflow: hidden;
   }
   .trusted-by-heading {
-    @apply uppercase;
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    color: rgba(255, 255, 255, 0.44);
-    margin-bottom: clamp(0.8rem, 1.5vw, 1.3rem);
+    @apply font-heading font-extrabold normal-case;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 0.8rem;
+  }
+  .trusted-by-sub {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.64);
+    max-width: 38rem;
+    margin: 0 auto clamp(1.8rem, 3vw, 2.5rem);
   }
   .trusted-by-track {
     display: flex;
