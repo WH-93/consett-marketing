@@ -345,7 +345,7 @@
   .trusted-by {
     background: #050607;
     color: #fff;
-    padding: clamp(2.8rem, 5.6vw, 4.9rem) 0 clamp(4rem, 8vw, 7rem);
+    padding: clamp(2.8rem, 5.6vw, 4.9rem) 0 clamp(2.9rem, 5.8vw, 5rem);
     text-align: center;
     overflow: hidden;
   }
