@@ -339,7 +339,10 @@
 
   /* Trusted-by brand marquee — full-width ticker */
   .trusted-by-spacer {
-    background: var(--paper);
+    background-color: var(--paper);
+    background-image: url('/patterns/green-arrow-tile.svg');
+    background-repeat: repeat;
+    background-size: clamp(5.4rem, 7.8vw, 8.1rem);
     padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
   }
   .trusted-by {
@@ -552,6 +555,7 @@
     color: #fff;
     padding: clamp(1.8rem, 4.2vw, 3.6rem) clamp(1.25rem, 5vw, 5rem) clamp(1.1rem, 2vw, 1.7rem);
   }
+  .cs-hero .eyebrow { color: rgba(255, 255, 255, 0.72); }
   .cs-hero-top {
     @apply flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3;
     border-bottom: 1px solid rgba(255, 255, 255, 0.16);
