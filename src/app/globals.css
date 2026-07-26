@@ -338,10 +338,14 @@
   }
 
   /* Trusted-by brand marquee — full-width ticker */
+  .trusted-by-spacer {
+    background: var(--paper);
+    padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  }
   .trusted-by {
     background: #050607;
     color: #fff;
-    padding: clamp(4rem, 8vw, 7rem) 0 clamp(4rem, 8vw, 7rem);
+    padding: clamp(2.8rem, 5.6vw, 4.9rem) 0 clamp(4rem, 8vw, 7rem);
     text-align: center;
     overflow: hidden;
   }

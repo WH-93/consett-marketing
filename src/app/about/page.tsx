@@ -13,7 +13,9 @@ export default function AboutPage() {
   return (
     <>
       <RenderPageMap map={publicPageMaps.about} profile={activeProfile} />
-      <TrustedBy />
+      <div className="trusted-by-spacer">
+        <TrustedBy />
+      </div>
     </>
   );
 }
