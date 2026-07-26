@@ -63,8 +63,8 @@ export const projects: Project[] = [
     image: '/reference/ross-webster-case-study.png',
     hero: {
       id: 'rw-brand',
-      label: 'Ross Webster Tree Services brand identity, logo, colour palette, services, van and cap',
-      image: '/work/ross-webster/01-brand-identity.png',
+      label: 'Ross Webster Tree Services website on desktop and mobile, responsive design',
+      image: '/work/ross-webster/02-website-mockup.png',
       color: '#1A3324',
       colorEnd: '#0B1610',
       aspect: 'hero',
@@ -72,8 +72,8 @@ export const projects: Project[] = [
     media: [
       {
         id: 'rw-website',
-        label: 'Ross Webster Tree Services website on desktop and mobile, responsive design',
-        image: '/work/ross-webster/02-website-mockup.png',
+        label: 'Ross Webster Tree Services brand identity, logo, colour palette, services, van and cap',
+        image: '/work/ross-webster/01-brand-identity.png',
         color: '#243D2C',
         colorEnd: '#15241A',
         aspect: 'wide',
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     summary:
       'Specialist recruitment brand. Positioning, website and content for a founder-led search firm.',
     statement: [
-      'Brand, website and',
+      'Brand, website &',
       'cloud hosted database.',
     ],
     tag: 'Brand, website and cloud hosted database',
