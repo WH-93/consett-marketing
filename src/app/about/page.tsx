@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { RenderPageMap } from '@/components/page-renderer/render-page-map';
+import { TrustedBy } from '@/components/trusted-by';
 import { activeProfile } from '@/site/active-profile';
 import { publicPageMaps } from '@/site/story-maps/public-pages';
 
@@ -9,5 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <RenderPageMap map={publicPageMaps.about} profile={activeProfile} />;
+  return (
+    <>
+      <RenderPageMap map={publicPageMaps.about} profile={activeProfile} />
+      <TrustedBy />
+    </>
+  );
 }
