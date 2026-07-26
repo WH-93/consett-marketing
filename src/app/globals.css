@@ -339,10 +339,6 @@
 
   /* Trusted-by brand marquee — full-width ticker */
   .trusted-by-spacer {
-    background-color: var(--paper);
-    background-image: url('/patterns/green-arrow-tile.svg');
-    background-repeat: repeat;
-    background-size: clamp(5.4rem, 7.8vw, 8.1rem);
     padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
   }
   .trusted-by {
@@ -428,6 +424,19 @@
     background-repeat: repeat;
     background-size: clamp(5.4rem, 7.8vw, 8.1rem);
     padding: clamp(2.75rem, 6vw, 5.5rem) clamp(1rem, 5vw, 5rem);
+  }
+
+  /* Continuous arrow field shell — wraps a full page to share one tiled
+     background across hero + content below. Nested .page-hero-field
+     turns transparent so the parent background shows through seamlessly. */
+  .arrow-field-shell {
+    background-color: var(--paper);
+    background-image: url('/patterns/green-arrow-tile.svg');
+    background-repeat: repeat;
+    background-size: clamp(5.4rem, 7.8vw, 8.1rem);
+  }
+  .arrow-field-shell > .page-hero-field {
+    background: none;
   }
   .page-hero-band {
     @apply grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center;
