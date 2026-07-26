@@ -714,7 +714,7 @@
     margin-inline: auto;
     padding: clamp(3.5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
   }
-  .cs-block + .cs-block { margin-top: clamp(4rem, 9vw, 7.5rem); }
+  .cs-block + .cs-block { margin-top: clamp(3.2rem, 7.2vw, 6rem); }
   .cs-block-copy { max-width: 40rem; }
   .cs-block-title {
     @apply mt-5 font-heading font-extrabold text-navy normal-case;
