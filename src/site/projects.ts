@@ -204,9 +204,7 @@ export function getAllProjectSlugs(): string[] {
 }
 
 /** Home / clients work cards — internal project routes only. */
-export const workExamples = projects
-  .filter((project) => project.slug !== 'bc-financial-search')
-  .map((project) => ({
+export const workExamples = projects.map((project) => ({
   title: project.title,
   desc: project.summary,
   href: `/work/${project.slug}`,
