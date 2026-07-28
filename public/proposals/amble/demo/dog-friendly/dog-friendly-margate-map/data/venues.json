@@ -1,0 +1,265 @@
+[
+  {
+    "id": "two-halves",
+    "name": "The Two Halves",
+    "category": "pub",
+    "lat": 51.389311,
+    "lng": 1.380011,
+    "address": "2 Marine Drive, Margate CT9 1DH",
+    "dogPolicy": "Dogs welcome inside and in the beer garden. Water bowls provided. Treats at the bar.",
+    "website": "https://www.thetwohalvesmargate.co.uk",
+    "tags": [
+      "indoor",
+      "outdoor",
+      "water-bowls",
+      "treats"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide + Amble Dogs"
+  },
+  {
+    "id": "harbour-arms",
+    "name": "Harbour Arms",
+    "category": "pub",
+    "lat": 51.391185,
+    "lng": 1.378816,
+    "address": "Margate Harbour Arm, Margate CT9 1AP",
+    "dogPolicy": "Dogs welcome. Micropub on the Harbour Arm with sea views.",
+    "tags": [
+      "indoor",
+      "outdoor",
+      "seaview"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "lifeboat-ale",
+    "name": "Lifeboat Ale & Cider House",
+    "category": "pub",
+    "lat": 51.3895,
+    "lng": 1.3795,
+    "address": "Market Street, Margate CT9 1ER",
+    "dogPolicy": "Dogs welcome. Specialist ale and cider house in the Old Town.",
+    "tags": [
+      "indoor",
+      "old-town"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "old-kent-market",
+    "name": "The Old Kent Market",
+    "category": "cafe",
+    "lat": 51.391,
+    "lng": 1.378,
+    "address": "8 Fort Hill, Margate CT9 1HD",
+    "dogPolicy": "Dogs welcome throughout the market. Multiple food and drink vendors under one roof. Indoor seating.",
+    "website": "https://www.oldkentmarket.com",
+    "tags": [
+      "indoor",
+      "market",
+      "multiple-vendors"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "gb-pizza",
+    "name": "GB Pizza Co",
+    "category": "cafe",
+    "lat": 51.388754,
+    "lng": 1.379807,
+    "address": "14 Marine Drive, Margate CT9 1DH",
+    "dogPolicy": "Dogs welcome. Wood-fired pizza on the seafront.",
+    "tags": [
+      "indoor",
+      "outdoor",
+      "seaview",
+      "seafront"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "palm-bay-cafe",
+    "name": "Palm Bay Cafe",
+    "category": "cafe",
+    "lat": 51.391638,
+    "lng": 1.409076,
+    "address": "Palm Bay Avenue, Cliftonville CT9 3PP",
+    "dogPolicy": "Dog ice cream available. Beachside cafe. Outdoor seating with sea views.",
+    "tags": [
+      "outdoor",
+      "seaview",
+      "dog-ice-cream",
+      "beach"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "sargasso",
+    "name": "Sargasso",
+    "category": "cafe",
+    "lat": 51.391349,
+    "lng": 1.379397,
+    "address": "Margate Harbour Arm, Margate CT9 1AP",
+    "dogPolicy": "Well-behaved dogs only. Harbour Arm restaurant with sea views.",
+    "tags": [
+      "indoor",
+      "outdoor",
+      "seaview"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "beach-buoy",
+    "name": "Beach Buoy",
+    "category": "cafe",
+    "lat": 51.3898,
+    "lng": 1.382,
+    "address": "The Promenade, Margate CT9 1DD",
+    "dogPolicy": "Dogs welcome. Seafront takeaway. Outdoor seating.",
+    "tags": [
+      "outdoor",
+      "seafront",
+      "takeaway"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "george-and-heart",
+    "name": "The George & Heart",
+    "category": "pub",
+    "lat": 51.386,
+    "lng": 1.378,
+    "address": "Market Place, Margate CT9 1ER",
+    "dogPolicy": "Dogs welcome. Historic coaching inn in the Old Town.",
+    "tags": [
+      "indoor",
+      "old-town",
+      "historic"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "sete-wine-bar",
+    "name": "Sete Wine Bar",
+    "category": "cafe",
+    "lat": 51.388,
+    "lng": 1.38,
+    "address": "Market Street, Margate CT9 1ER",
+    "dogPolicy": "Dogs welcome. Wine bar in the Old Town.",
+    "tags": [
+      "indoor",
+      "old-town"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "wig-and-pen",
+    "name": "Wig & Pen",
+    "category": "pub",
+    "lat": 51.3885,
+    "lng": 1.379,
+    "address": "Market Street, Margate CT9 1ER",
+    "dogPolicy": "Dogs welcome. Traditional pub in the Old Town.",
+    "tags": [
+      "indoor",
+      "old-town"
+    ],
+    "verified": "2026-07-17",
+    "source": "Visit Thanet 2026 guide"
+  },
+  {
+    "id": "dane-park",
+    "name": "Dane Park",
+    "category": "walk",
+    "lat": 51.385999,
+    "lng": 1.393258,
+    "address": "Dane Road, Margate CT9 2AA",
+    "dogPolicy": "Quiet enclosed park with shaded paths. Low footfall during weekdays. Suitable for nervous dogs. On-lead area.",
+    "tags": [
+      "quiet",
+      "enclosed",
+      "shaded",
+      "on-lead"
+    ],
+    "verified": "2026-07-17",
+    "source": "Amble Dogs"
+  },
+  {
+    "id": "westbrook-bay",
+    "name": "Westbrook Bay",
+    "category": "walk",
+    "lat": 51.387,
+    "lng": 1.362,
+    "address": "Westbrook Bay, Margate CT9",
+    "dogPolicy": "Dogs banned 1 May to 30 September. Off-peak: wide sand beach, quieter than main Margate sands. Good for off-lead recall training outside summer.",
+    "tags": [
+      "off-lead",
+      "beach",
+      "seasonal",
+      "quiet"
+    ],
+    "verified": "2026-07-17",
+    "source": "Amble Dogs"
+  },
+  {
+    "id": "palm-bay",
+    "name": "Palm Bay",
+    "category": "walk",
+    "lat": 51.389757,
+    "lng": 1.418979,
+    "address": "Palm Bay Avenue, Cliftonville CT9 3PP",
+    "dogPolicy": "Quieter than main beaches. Good for walks year-round. Check seasonal restrictions on sections bordering main sands. Free parking nearby.",
+    "tags": [
+      "off-lead",
+      "beach",
+      "quiet",
+      "parking"
+    ],
+    "verified": "2026-07-17",
+    "source": "Amble Dogs"
+  },
+  {
+    "id": "cliftonville-coastal",
+    "name": "Cliftonville Coastal Walk",
+    "category": "walk",
+    "lat": 51.392,
+    "lng": 1.405,
+    "address": "Eastern Esplanade, Cliftonville CT9",
+    "dogPolicy": "Paved promenade with grass verges. Quieter than the main seafront. Good for lead walks with sea views. Some sections near the cliff edge \u2014 keep dogs close.",
+    "tags": [
+      "paved",
+      "seaview",
+      "on-lead",
+      "quiet"
+    ],
+    "verified": "2026-07-17",
+    "source": "Amble Dogs"
+  },
+  {
+    "id": "margate-vets",
+    "name": "Margate Vets",
+    "category": "vet",
+    "lat": 51.381,
+    "lng": 1.375,
+    "address": "Northdown Park Road, Margate CT9 2TR",
+    "dogPolicy": "Full veterinary practice. Emergency and routine care. Call ahead for availability. Car park on site.",
+    "phone": "01843 226678",
+    "tags": [
+      "emergency",
+      "routine",
+      "parking"
+    ],
+    "verified": "2026-07-17",
+    "source": "Amble Dogs"
+  }
+]
