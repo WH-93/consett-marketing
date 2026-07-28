@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Amble Dogs - Proposal · Consett Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F6F8F1;
+    --ink: #001326;
+    --orange: #FF4B00;
+    --green: #4CB020;
+    --green-bright: #8FEA64;
+    --hairline: rgba(0, 19, 38, 0.14);
+    --hairline-light: rgba(247, 243, 236, 0.18);
+    --black: #050607;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--paper);
+  }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'ss01' on;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Sora', system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    overflow-wrap: anywhere;
+  }
+
+  /* ═══════════════════════════ Arrow field - exact tile from consett-marketing ═══════════════════ */
+  .proposal-field {
+    background-color: var(--paper);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Crect width='220' height='220' fill='%23F6F8F1'/%3E%3Cpath d='M63 157 157 63M105 63h52v52' fill='none' stroke='%234CB020' stroke-width='28' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: clamp(5.4rem, 7.8vw, 8.1rem);
+    background-position: 0 0;
+  }
+
+  .band-black {
+    position: relative;
+    background: var(--black);
+    color: #fff;
+    padding: clamp(1.75rem, 4.5vw, 4.75rem);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+  }
+
+  /* ═══════════════════════════ Typography ═══════════════════════════ */
+  .eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    color: rgba(0,19,38,0.6);
+  }
+  .band-black .eyebrow { color: var(--green-bright); }
+
+  .band-title {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.7rem, 7.2vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+  }
+  .band-title-sm {
+    font-size: clamp(2.1rem, 4.6vw, 4.2rem);
+    line-height: 0.98;
+  }
+  .band-accent { color: var(--green); }
+
+  .band-lead {
+    color: rgba(255,255,255,0.84);
+    font-size: clamp(1.02rem, 1.6vw, 1.28rem);
+    line-height: 1.55;
+    max-width: 44rem;
+  }
+  .body-copy {
+    color: rgba(0,19,38,0.7);
+    font-size: 1rem;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
+  .band-black .body-copy { color: rgba(255,255,255,0.72); }
+
+  .band-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2.5rem 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    padding-bottom: 1.1rem;
+    margin-bottom: clamp(1.75rem, 3.5vw, 3rem);
+  }
+
+  /* ═══════════════════════════ Slides ═══════════════════════════ */
+  .proposal-slide {
+    display: flex;
+    align-items: center;
+    min-height: 92svh;
+    padding: clamp(3.5rem, 8vw, 7.5rem) clamp(1rem, 5vw, 5rem);
+  }
+  .proposal-slide > .band-black {
+    width: min(100%, 78rem);
+    margin-inline: auto;
+  }
+
+  .proposal-title {
+    display: flex;
+    align-items: center;
+    min-height: calc(100svh - 11.8rem);
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 5vw, 5rem);
+  }
+  .proposal-title > .band-black {
+    width: min(100%, 68rem);
+    margin-inline: auto;
+  }
+
+  /* ═══════════════════════════ Components ═══════════════════════════ */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.09em;
+    padding: 0.95rem 1.8rem;
+    background: var(--orange);
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-gold::after { content: '↗'; font-size: 1rem; line-height: 1; transition: transform 0.3s ease; }
+  .btn-gold:hover { background: var(--ink); color: #fff; }
+  .btn-gold:hover::after { transform: translate(2px, -2px); }
+  .band-black .btn-gold { background: var(--green); color: #fff; }
+  .band-black .btn-gold:hover { background: #fff; color: var(--black); }
+
+  .band-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    align-items: center;
+    margin-top: clamp(1.75rem, 3vw, 2.75rem);
+  }
+
+  .service-index {
+    border-top: 1px solid rgba(255,255,255,0.18);
+    margin-top: clamp(1.75rem, 3vw, 2.75rem);
+  }
+  .service-index-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1.25rem;
+    padding: 1.35rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    align-items: baseline;
+  }
+  .service-index-num {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 800;
+    color: rgba(255,255,255,0.4);
+    font-size: 1rem;
+  }
+  .service-index-title {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.35;
+  }
+  .service-index-desc {
+    grid-column: 2;
+    color: rgba(255,255,255,0.62);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+  .stat-cell {
+    text-align: center;
+    padding: 1.6rem 1rem;
+    border-right: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.03);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-cell .val {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    color: var(--green);
+    line-height: 1.15;
+  }
+  .stat-cell .cap {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+  }
+
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+  .insight {
+    border-left: 3px solid var(--green);
+    padding: 1.2rem 1.5rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 0 6px 6px 0;
+  }
+  .insight .insight-label {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--green-bright);
+    margin-bottom: 0.5rem;
+  }
+  .insight p {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .card-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+  .card-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+  .card-dark {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.5rem 1.4rem;
+  }
+  .card-dark h4 {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .card-dark p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  .price-card {
+    text-align: center;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px;
+    max-width: 480px;
+    margin-inline: auto;
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .price-card .amount {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    color: #fff;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+  .price-card .freq {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--green);
+    margin-top: 0.25rem;
+  }
+  .price-card .meta {
+    color: rgba(255,255,255,0.48);
+    font-size: 0.82rem;
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+
+  .rule { border: none; border-top: 1px solid var(--hairline); margin: 2.5rem 0; }
+  .band-black .rule { border-color: rgba(255,255,255,0.18); }
+
+  @media (max-width: 639px) {
+    .proposal-slide { padding-inline: 0; min-height: 78svh; }
+    .proposal-title { padding-inline: 0; min-height: auto; }
+    .band-black { box-shadow: 0 18px 50px rgba(0,0,0,0.26); }
+    .card-grid-2, .card-grid-3, .insight-grid, .stat-strip { grid-template-columns: 1fr; }
+    .stat-cell { display: flex; align-items: baseline; gap: 0.75rem; text-align: left; padding: 1rem 1.25rem; }
+    .stat-cell .val { font-size: 1.5rem; min-width: 3.5rem; }
+    .service-index-row { grid-template-columns: auto 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="proposal-field">
+
+
+<!-- ══════════════════════════ Title Slide ══════════════════════════ -->
+  <div class="proposal-title">
+    <div class="band-black">
+      <p class="eyebrow">Proposal for George and Jade</p>
+      <h1 style="font-family:'Sora',system-ui,sans-serif;font-weight:800;font-size:clamp(3.4rem,9.5vw,8.6rem);line-height:0.9;letter-spacing:-0.055em;color:#fff">
+        <span style="display:block;padding-bottom:0.1em;margin-bottom:-0.06em">Amble Dogs</span>
+        <span style="display:block;padding-bottom:0.1em;margin-bottom:-0.06em">SEO &amp; <span style="color:var(--green)">Growth</span></span>
+      </h1>
+      <p class="band-lead" style="margin-top:clamp(1.4rem,2.4vw,2.1rem)">
+        Optimising your website into the most-visited one in Crouch End.
+      </p>
+      <div class="band-actions">
+        <span style="color:rgba(255,255,255,0.45);font-size:0.82rem">July 2026 &nbsp;·&nbsp; Consett Marketing</span>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ Summary 2 - Seasonality & Timing ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">02 &nbsp;-&nbsp; Preemptive summary</p>
+      </div>
+      <h2 class="band-title band-title-sm">September is the window.<br><span class="band-accent">Lets build momentum.</span></h2>
+
+      <!-- Peak seasonality — full width with graph -->
+      <div class="insight" style="grid-column:1/-1;margin-top:clamp(1.5rem,2.5vw,2.5rem)">
+        <div class="insight-label">Peak seasonality — backed by data</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:end">
+          <div>
+            <p style="margin-bottom:1rem">The single biggest month for dog walking enquiries is <strong style="color:#fff">September — 2 to 3× the baseline.</strong> Back to office. Back to school. Hiring walkers. Secondary spikes in Jan (new year routines), April (Easter), and Nov/Dec (holiday travel sitting).</p>
+            <p style="color:rgba(255,255,255,0.5);font-size:0.78rem">Location pages must be live before <strong style="color:#fff">1 September</strong> to catch the biggest natural acquisition window of the year.</p>
+          </div>
+          <div>
+            <div style="display:flex;align-items:flex-end;gap:8px;height:140px;padding:0 4px">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.12);border-radius:3px 3px 0 0;height:42px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Jan</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.12);border-radius:3px 3px 0 0;height:35px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Feb</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.12);border-radius:3px 3px 0 0;height:28px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Mar</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.15);border-radius:3px 3px 0 0;height:63px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Apr</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.12);border-radius:3px 3px 0 0;height:39px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">May</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.12);border-radius:3px 3px 0 0;height:31px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Jun</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.12);border-radius:3px 3px 0 0;height:49px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Jul</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.12);border-radius:3px 3px 0 0;height:56px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Aug</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:#4CB020;border-radius:3px 3px 0 0;height:126px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:#8FEA64;text-transform:uppercase;letter-spacing:0.06em;font-weight:700">Sep</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.12);border-radius:3px 3px 0 0;height:45px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Oct</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.18);border-radius:3px 3px 0 0;height:70px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Nov</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%">
+                <div style="width:100%;background:rgba(255,255,255,0.18);border-radius:3px 3px 0 0;height:77px;margin-top:auto"></div>
+                <span style="font-size:0.55rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em">Dec</span>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:0.55rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.06em">
+              <span>"dog walker near me"</span>
+              <span>14,800 UK/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-grid" style="margin-top:1.25rem">
+        <div class="insight">
+          <div class="insight-label">The opportunity seems viable</div>
+          <p>Crouch End Pet Care ranks in the top five with a <strong style="color:#fff" contenteditable="true" data-we-original="four-page website" data-we-original-html="four-page website">four-page website</strong> and no pricing. Green Dog Walking ranks first with location pages that are one paragraph. A properly-built site can rank.</p>
+        </div>
+        <div class="insight">
+          <div class="insight-label">What nobody claims</div>
+          <p>Proof. Evidence. Expertise. Consistency at scale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ Pillars ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">03 &nbsp;-&nbsp; What we do</p>
+      </div>
+      <h2 class="band-title band-title-sm">Four <span class="band-accent">pillars.</span></h2>
+
+      <div class="card-grid-2" style="grid-template-columns:repeat(4,1fr);margin-top:clamp(1.5rem,2.5vw,2.5rem)">
+        <div class="card-dark" style="border-left:3px solid var(--orange)">
+          <h4 style="color:var(--orange)">Social</h4>
+          <ul style="margin-top:0.5rem;padding-left:1rem;list-style-type:disc">
+            <li>Aligned brand communications</li>
+            <li>Brand optimisation - including a design system</li>
+            <li>Social strategy: locations, topics, captions</li>
+            <li>Instagram focus - social calendar planning</li>
+            <li>Collaborations</li>
+          </ul>
+        </div>
+        <div class="card-dark" style="border-left:3px solid var(--orange)">
+          <h4 style="color:var(--orange)">Website</h4>
+          <ul style="margin-top:0.5rem;padding-left:1rem;list-style-type:disc">
+            <li>Information architecture</li>
+            <li>Keyword targeted pages (data)</li>
+            <li>Page optimisation across the website - images, text, proof etc</li>
+            <li>Website content concept - map project</li>
+          </ul>
+        </div>
+        <div class="card-dark" style="border-left:3px solid var(--orange)">
+          <h4 style="color:var(--orange)">Off-site</h4>
+          <ul style="margin-top:0.5rem;padding-left:1rem;list-style-type:disc">
+            <li>Backlinks - foundational</li>
+            <li>Backlinks - relevance</li>
+            <li>Backlinks - outreach</li>
+            <li>Citations and mentions</li>
+          </ul>
+        </div>
+        <div class="card-dark" style="border-left:3px solid var(--orange)">
+          <h4 style="color:var(--orange)">Strategic</h4>
+          <ul style="margin-top:0.5rem;padding-left:1rem;list-style-type:disc">
+            <li>SEO data &amp; SERP analysis</li>
+            <li>AI search insights &amp; fanouts</li>
+            <li>Google Search Console</li>
+            <li>Competitive analysis</li>
+            <li>Brand position</li>
+            <li>Tracking &amp; planning</li>
+            <li>Dedicated WhatsApp group + shared Dropbox</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ 04 Social ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">03 &nbsp;-&nbsp; Social</p>
+      </div>
+      <h2 class="band-title band-title-sm">Aligned brand <span class="band-accent">communications.</span></h2>
+
+      <div class="service-index">
+        <div class="service-index-row">
+          <span class="service-index-num">01</span>
+          <span class="service-index-title">Profile optimisation</span>
+          <div class="service-index-desc">Everything consistent. One voice everywhere. Optimised for conversion.</div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">02</span>
+          <span class="service-index-title">Social strategy aligned with data</span>
+          <div class="service-index-desc">Content mapped to search intent.</div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">03</span>
+          <span class="service-index-title">Instagram focus - social calendar</span>
+          <div class="service-index-desc">Full guidance on what to post and when. Assets created to support delivery.</div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">04</span>
+          <span class="service-index-title">Collaborations</span>
+          <div class="service-index-desc">Generating digital presence through outreach to build relevant local backlinks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ 04 Website ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">04 &nbsp;-&nbsp; Website</p>
+      </div>
+      <h2 class="band-title band-title-sm">Information architecture<br>&amp; <span class="band-accent">content.</span></h2>
+
+      <div class="service-index">
+        <div class="service-index-row">
+          <span class="service-index-num">01</span>
+          <span class="service-index-title">Information architecture</span>
+          <div class="service-index-desc">Clear service hierarchy across many pages of interlocking content. Every page nails the keyword. Internal links.</div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">02</span>
+          <span class="service-index-title">Keyword-targeted pages (data-backed)</span>
+          <div class="service-index-desc">A page for every bottom of funnel opportunity.</div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">03</span>
+          <span class="service-index-title">Page optimisation</span>
+          <div class="service-index-desc">Images, structure and driving the sale. Every page built for Google and humans simultaneously.</div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">04</span>
+          <span class="service-index-title">Website content - map project</span>
+          <div class="service-index-desc">Build on the proof of concept - scale across to other types of content.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ 05 Off-site ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">05 &nbsp;-&nbsp; Off-site</p>
+      </div>
+      <h2 class="band-title band-title-sm">Links, citations,<br><span class="band-accent">mentions.</span></h2>
+
+      <div class="card-grid-2">
+        <div class="card-dark">
+          <h4>Foundational backlinks</h4>
+          <p>The base layer every business needs.</p>
+        </div>
+        <div class="card-dark">
+          <h4>Relevance backlinks</h4>
+          <p>Links from sites Google already trusts in this space.</p>
+        </div>
+        <div class="card-dark">
+          <h4>Outreach backlinks</h4>
+          <p>Guest posts and relevant sources with authority.</p>
+        </div>
+        <div class="card-dark">
+          <h4>Citations &amp; mentions</h4>
+          <p>Brand mentions inserted wherever naturally possible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ 06 Strategic ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">06 &nbsp;-&nbsp; Strategic</p>
+      </div>
+      <h2 class="band-title band-title-sm">Data, positioning<br>&amp; <span class="band-accent">planning.</span></h2>
+
+      <div class="card-grid-3">
+        <div class="card-dark">
+          <h4>SEO data &amp; SERP analysis</h4>
+          <p>Keyword tracking. Ranking positions. Gap analysis against six tracked competitors.&nbsp;</p>
+        </div>
+        <div class="card-dark">
+          <h4>AI search insights &amp; fanouts</h4>
+          <p>What ChatGPT etc surfaces about dog walking in North London. Content built to be the answer they cite.</p>
+        </div>
+        <div class="card-dark">
+          <h4>Google Search Console</h4>
+          <p>Connected and monitored. Query performance. Keyword opportunities.</p>
+        </div>
+        <div class="card-dark">
+          <h4>Competitive analysis</h4>
+          <p>Green Dog Walking, Crouch End Pet Care, Jack's Pad, Highgate Dog Walker, Paws at the Park. What they rank for. What they miss.</p>
+        </div>
+        <div class="card-dark">
+          <h4>Brand position</h4>
+          <p>Align search intent, buyer problems based on data insights. Mirror this across all communications.</p>
+        </div>
+        <div class="card-dark">
+          <h4>Tracking &amp; planning</h4>
+          <p>WhatsApp group + shared Dropbox for assets and reports.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ Demo ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">07 &nbsp;-&nbsp; Demo</p>
+      </div>
+      <h2 class="band-title band-title-sm">See what a location<br><span class="band-accent">page looks like.</span></h2>
+      <p class="band-lead" style="margin-top:clamp(1.5rem,2.5vw,2rem)">A live example of an SEO optimised page</p>
+      <p style="color:var(--text-dim);font-size:0.9rem;max-width:600px;margin-top:12px;line-height:1.5;margin-bottom:8px">Brand position justification: "disadvantages of doggy daycare"</p>
+      <ul style="color:var(--text-dim);font-size:0.9rem;max-width:600px;margin-left:20px;line-height:1.5">
+        <li>1,671 AI searches/month</li>
+        <li>Overstimulation, illness, bad habits, variable quality</li>
+        <li>Every concern people ask AI about daycare is solved by Amble's 1-to-1 walking model</li>
+      </ul>
+      <div class="band-actions">
+        <a href="./demo/" class="btn-gold">View demo landing page</a>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ 08 Month 1 ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">08 &nbsp;-&nbsp; Month one</p>
+      </div>
+      <h2 class="band-title band-title-sm">Full website rebuild<br><span class="band-accent" contenteditable="true" data-we-original="included in the price." data-we-original-html="included.">included in the price.</span></h2>
+
+      <div class="service-index">
+        <div class="service-index-row">
+          <span class="service-index-num">01</span>
+          <span class="service-index-title">Bespoke website coded from scratch - v1 ready for review within 5 days</span>
+          <div class="service-index-desc"><br></div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">02</span>
+          <span class="service-index-title">Full customisability - Will ensure full collaboration with designer (Figma etc.)</span>
+          <div class="service-index-desc"><br></div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">03</span>
+          <span class="service-index-title">Securely hosted</span>
+          <div class="service-index-desc"><br></div>
+        </div>
+        <div class="service-index-row">
+          <span class="service-index-num">04</span>
+          <span class="service-index-title">Enables rapid and effective deployment</span>
+          <div class="service-index-desc"><br></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ══════════════════════════ 09 Pricing ══════════════════════════ -->
+  <div class="proposal-slide">
+    <div class="band-black">
+      <div class="band-head">
+        <p class="eyebrow">09 &nbsp;-&nbsp; Investment</p>
+      </div>
+      <h2 class="band-title band-title-sm">Everything above.<br><span class="band-accent">One monthly cost.</span></h2>
+
+      <div style="display:flex;gap:24px;justify-content:center;align-items:stretch;flex-wrap:wrap">
+
+      <div class="price-card">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--green-bright);margin-bottom:0.5rem">Month one includes full website rebuild</p>
+        <div class="amount">&pound;650</div>
+        <div class="freq">/month</div>
+        <hr class="rule" style="width:60px;margin:1.5rem auto">
+        <p style="color:rgba(255,255,255,0.6);font-size:0.88rem">&pound;40 <span style="color:#fff">hosting &amp; maintenance</span></p>
+        <p class="meta">14+ years experience, 2x team working 1-2 hrs daily.<div>No contract lock-in. Cancel anytime.</div></p>
+      </div>
+
+      <div class="price-card" style="opacity:0.6">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--green-bright);margin-bottom:0.5rem">Third party hosted support</p>
+        <div class="amount" style="font-size:clamp(2rem,5vw,3rem)">&pound;1,100</div>
+        <div class="freq" style="font-size:1rem">/month</div>
+        <hr class="rule" style="width:60px;margin:1.5rem auto">
+        <ul style="text-align:left;color:rgba(255,255,255,0.55);font-size:0.82rem;line-height:1.6;margin:0;padding:0 0 0 18px">
+          <li>Limited speed of delivery</li>
+          <li>Limited scope for website projects</li>
+          <li>Limited efficiency of SEO activity</li>
+        </ul>
+      </div>
+
+      </div>
+
+      <p style="text-align:center;margin-top:2rem;font-size:0.78rem;color:rgba(255,255,255,0.38)">
+        Consett Marketing &nbsp;·&nbsp; hello@consettmarketing.co.uk &nbsp;·&nbsp; 07342 620366
+      </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

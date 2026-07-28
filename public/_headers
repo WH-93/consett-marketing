@@ -19,3 +19,7 @@
 
 /*.svg
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/proposals/amble/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: public, max-age=0, must-revalidate
