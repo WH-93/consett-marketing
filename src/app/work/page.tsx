@@ -97,7 +97,7 @@ export default function WorkPage() {
 
       {/* Project cards */}
       <section className="wk-gallery">
-        {projects.map((project, index) => (
+        {projects.filter((project) => project.visibleInWork !== false).map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} />
         ))}
       </section>

@@ -29,6 +29,8 @@ export type Project = {
   sector: string;
   location: string;
   year: string;
+  /** Keep false for case studies that should only be reached through project navigation. */
+  visibleInWork?: boolean;
   liveUrl?: string;
   liveLabel?: string;
   /** Card thumbnail color on the work grid when no image. */
@@ -191,6 +193,106 @@ export const projects: Project[] = [
       { label: 'Focus', value: 'Founder brand' },
       { label: 'Market', value: 'Financial services' },
     ],
+    nextSlug: 'feathers-inn',
+  },
+  {
+    slug: 'feathers-inn',
+    client: 'The Feathers Inn',
+    title: 'The Feathers Inn',
+    summary:
+      'Easter event campaign across print and social, bringing a village tradition, food and makers’ market together.',
+    statement: [
+      'A broader campaign',
+      'for Easter weekend.',
+    ],
+    tag: 'Campaign · Social · Print',
+    services: ['Campaign concept', 'Social media content', 'Poster design'],
+    sector: 'Hospitality',
+    location: 'Northumberland',
+    year: '',
+    visibleInWork: false,
+    cardColor: '#30251C',
+    image: '/work/feathers-inn/01-hero-poster-mockup.webp',
+    hero: {
+      id: 'feathers-hero',
+      label: 'Hero poster mockup for Easter Weekend at The Feathers Inn, celebrating the 51st Annual Hedley Barrel Race',
+      image: '/work/feathers-inn/01-hero-poster-mockup.webp',
+      color: '#30251C',
+      colorEnd: '#120F0C',
+      aspect: 'hero',
+    },
+    media: [
+      {
+        id: 'feathers-archive',
+        label: 'Collage of archival black-and-white photographs from the Hedley Barrel Race',
+        image: '/work/feathers-inn/02-archive-barrel-race.webp',
+        color: '#3A3027',
+        colorEnd: '#18130F',
+        aspect: 'wide',
+      },
+      {
+        id: 'feathers-poster-context',
+        label: 'Easter Weekend poster shown framed and pinned in real-world contexts',
+        image: '/work/feathers-inn/03-poster-in-context.webp',
+        color: '#3A3027',
+        colorEnd: '#18130F',
+        aspect: 'wide',
+      },
+      {
+        id: 'feathers-carousel',
+        label: 'Instagram carousel post mockup promoting Saturday and Monday Easter events at The Feathers Inn',
+        image: '/work/feathers-inn/04-instagram-carousel.webp',
+        color: '#25211D',
+        colorEnd: '#090807',
+        aspect: 'wide',
+      },
+      {
+        id: 'feathers-stories',
+        label: 'Instagram Story series mockup for The Feathers Inn Easter weekend campaign',
+        image: '/work/feathers-inn/05-instagram-story-series.webp',
+        color: '#25211D',
+        colorEnd: '#090807',
+        aspect: 'wide',
+      },
+    ],
+    sections: [
+      {
+        eyebrow: 'The brief',
+        title: 'More than a beer festival.',
+        body: [
+          'The Feathers Inn Easter event had traditionally been promoted as a beer festival. However, with more people choosing to drink less alcohol, the pub owners felt the name no longer reflected everything the weekend had become.',
+          'The brief was to create a broader campaign centred around the annual Hedley Barrel Race, a village tradition dating back to 1975. The campaign would bring together the race, egg jarping, food, drinks and a makers’ market, while celebrating the history and character of The Feathers Inn.',
+        ],
+      },
+      {
+        eyebrow: 'What we built',
+        title: 'One Easter campaign across print and social.',
+        body: [
+          'We created Easter Weekend at The Feathers Inn as one clear campaign for the full weekend.',
+          'After spotting some old photographs of the barrel race on the pub’s Instagram, we asked to see more from its archive. These images became the heart of the campaign and brought the event history to life through the hero poster.',
+          'We paired the photographs with a chalkboard-style design that suited the traditional pub setting, then rolled this out across Instagram posts and Stories.',
+          'We also created a detailed content plan with recommended posting dates and times, suggested captions and guidance for building interest in the lead-up to the event.',
+        ],
+      },
+      {
+        eyebrow: 'The outcome',
+        title: 'A clear identity for the full weekend.',
+        body: [
+          'The Feathers Inn had one clear campaign that promoted the full Easter weekend rather than focusing mainly on beer.',
+          'The hero poster gave the pub’s old photographs a new life and created a campaign that felt rooted in history. The coordinated print and social content also made the weekend easier to promote clearly and consistently.',
+          '- One recognisable campaign across print and social',
+          '- A clear visual identity for the event',
+          '- Existing archive photography given a new purpose',
+          '- A bank of coordinated content ready to publish with guidance and recommendations',
+          '- Consistency between the physical poster and online promotion',
+        ],
+      },
+    ],
+    results: [
+      { label: 'Scope', value: 'Campaign · Social · Print' },
+      { label: 'Focus', value: 'Event identity and promotion' },
+      { label: 'Market', value: 'Northumberland' },
+    ],
     nextSlug: 'ross-webster-tree-services',
   },
 ];
@@ -204,7 +306,9 @@ export function getAllProjectSlugs(): string[] {
 }
 
 /** Home / clients work cards — internal project routes only. */
-export const workExamples = projects.map((project) => ({
+export const workExamples = projects
+  .filter((project) => project.visibleInWork !== false)
+  .map((project) => ({
   title: project.title,
   desc: project.summary,
   href: `/work/${project.slug}`,
