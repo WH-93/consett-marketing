@@ -202,8 +202,8 @@ export const projects: Project[] = [
     summary:
       'Easter event campaign across print and social, bringing a village tradition, food and makers’ market together.',
     statement: [
-      'A broader campaign',
-      'for Easter weekend.',
+      'A creative campaign',
+      'across print and social.',
     ],
     tag: 'Campaign · Social · Print',
     services: ['Campaign concept', 'Social media content', 'Poster design'],
@@ -260,7 +260,7 @@ export const projects: Project[] = [
         eyebrow: 'The brief',
         title: 'More than a beer festival.',
         body: [
-          'The Feathers Inn Easter event had traditionally been promoted as a beer festival. However, with more people choosing to drink less alcohol, the pub owners felt the name no longer reflected everything the weekend had become.',
+          'The Feathers Inn Easter event had traditionally been promoted as a beer festival. However, with more people choosing to drink less alcohol, the pub owners felt the name no longer reflected what the weekend had become.',
           'The brief was to create a broader campaign centred around the annual Hedley Barrel Race, a village tradition dating back to 1975. The campaign would bring together the race, egg jarping, food, drinks and a makers’ market, while celebrating the history and character of The Feathers Inn.',
         ],
       },
@@ -278,7 +278,7 @@ export const projects: Project[] = [
         eyebrow: 'The outcome',
         title: 'A clear identity for the full weekend.',
         body: [
-          'The Feathers Inn had one clear campaign that promoted the full Easter weekend rather than focusing mainly on beer.',
+          'The Feathers Inn had one clear campaign that promoted the full Easter weekend and celebrated the annual barrel race.',
           'The hero poster gave the pub’s old photographs a new life and created a campaign that felt rooted in history. The coordinated print and social content also made the weekend easier to promote clearly and consistently.',
           '- One recognisable campaign across print and social',
           '- A clear visual identity for the event',

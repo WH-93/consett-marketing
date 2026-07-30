@@ -758,6 +758,9 @@
     padding-left: 0;
     margin-top: 0;
   }
+  .cs-block-body > .body-copy + .cs-bullets {
+    margin-top: 1.5rem;
+  }
   .cs-bullets li {
     position: relative;
     padding-left: 1.5rem;
